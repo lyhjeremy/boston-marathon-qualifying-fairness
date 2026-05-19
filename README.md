@@ -1,104 +1,65 @@
 # Are Boston Marathon Qualifying Times Fair?
 
-**A Three-Framework Comparative Analysis of BQ Standards Across Age and Gender**
+A three-framework comparative analysis of Boston Athletic Association qualifying standards across age and gender brackets.
 
-[![Read the article](https://img.shields.io/badge/Read-Web_Article-C0392B?style=flat-square)](https://boston-marathon-qualifying-fairness.vercel.app)
-[![PDF report](https://img.shields.io/badge/Download-PDF_Report-1a1a2e?style=flat-square)](reports/Boston_BQ_Three_Frameworks_Report.pdf)
-[![License](https://img.shields.io/badge/License-MIT-D4A537?style=flat-square)](LICENSE)
+📊 **[Read the full writeup →](writeup.md)** &nbsp;·&nbsp; 📄 [PDF report](reports/Boston_BQ_Three_Frameworks_Report.pdf) &nbsp;·&nbsp; 📝 [Word doc](reports/Boston_BQ_Three_Frameworks_Report.docx) &nbsp;·&nbsp; 📓 [Notebook](notebooks/boston_bq_fairness_analysis.ipynb)
 
 ---
 
-## Overview
+## What this is
 
-The Boston Athletic Association (BAA) sets qualifying times for 22 age-gender brackets but has never publicly disclosed the methodology behind them. This project applies three independent fairness frameworks to ask whether current BQ standards represent equal difficulty across all brackets:
+The BAA publishes qualifying times for 22 age-gender brackets but has never explained how those numbers are set. This project applies three independent fairness frameworks to ask whether the standards demand equal proportional effort across all brackets:
 
 1. **World Record Multiplier** — BQ time as a multiple of the bracket's world record
 2. **Top-3 Records** — Robustness check using averaged top performances
 3. **WMA Age-Graded Scoring** — Difficulty relative to age-specific biological potential
 
-Plus two deeper analysis layers:
+Plus historical comparison (did the 2026 tightening change the picture?) and sensitivity analysis (are conclusions robust to outliers and alternative reference records?).
 
-4. **Historical Comparison** — Did the 2026 tightening change the fairness picture?
-5. **Sensitivity Analysis** — Are conclusions robust to outliers and alternative reference records?
+## Headline findings
 
-## Key Findings
+- **No mean-level gender bias** — Welch t-test p = 0.81 across all frameworks
+- **Women's brackets are 3-4× more variable than men's** — CV 6.6% vs 1.9% under WR framework
+- **W80+ is the most miscalibrated bracket** — 57 minutes too strict under WR, 56 min under age-grading
 
-| Finding | Details |
-|---------|---------|
-| **No mean-level gender bias** | Welch t-test p = 0.81. Average difficulty is balanced across genders |
-| **Women's brackets 3-4× more variable** | CV: men 1.9%, women 6.6% under WR framework |
-| **W80+ is most miscalibrated** | 57 minutes too strict under WR, 56 min under age-grading |
-| **2026 tightening did not improve consistency** | Variance gap is unchanged from 2020-2025 |
-| **W80+ alone drives ~⅓ of women's variance** | Removing it drops women's CV from 6.6% to 4.5% |
+Full methodology, statistical tests, and bracket-by-bracket results in [`writeup.md`](writeup.md).
 
-![WR Multiplier Chart](outputs/figures/fig1_wr_multiplier.png)
-
-## Deliverables
-
-- **Web article** (`web/index.html`) — Self-contained magazine-style page with embedded figures and custom SVG illustrations. 1.5 MB. Opens offline.
-- **Academic PDF** (`reports/Boston_BQ_Three_Frameworks_Report.pdf`) — 8-page report: abstract, methodology, results, sensitivity, limitations.
-- **Jupyter notebook** (`notebooks/boston_bq_fairness_analysis.ipynb`) — Fully executable, cell-by-cell.
-
-## Repository Structure
+## Repository structure
 
 ```
 boston-marathon-qualifying-fairness/
-├── data/                          # Verified source data (CSV)
-│   ├── bq_standards_2026.csv      # BAA qualifying times
-│   ├── world_records.csv          # Marathon WRs by bracket
-│   ├── wma_age_factors.csv        # WMA 2023 age-grading factors
-│   └── field_size_2026.csv        # 2026 field metrics
-├── notebooks/
-│   └── boston_bq_fairness_analysis.ipynb
-├── src/
-│   ├── analysis.py                # Core analysis + all 8 figures
-│   ├── generate_pdf.py            # PDF report builder
-│   ├── generate_html.py           # Web article builder
-│   └── build_notebook.py          # Notebook generator
-├── outputs/
-│   ├── analysis_results.csv       # Full results table (22 rows × 20 cols)
-│   └── figures/                   # 8 publication-ready PNGs
-├── reports/
-│   └── Boston_BQ_Three_Frameworks_Report.pdf
-├── web/
-│   ├── index.html                 # Self-contained web article
-│   └── Boston_BQ_Three_Frameworks_Report.pdf  # Mirrored for download link
-├── requirements.txt
-├── README.md
-├── LICENSE
-└── .gitignore
+├── data/                          # Four source CSVs (BQ standards, WRs, WMA factors, field size)
+├── notebooks/                     # Jupyter notebook reproducing the analysis end-to-end
+├── src/                           # Python/JS source for analysis, PDF, DOCX, HTML
+├── outputs/                       # Generated figures (400 DPI) and results CSV
+├── reports/                       # PDF and Word versions of the writeup
+├── web/                           # Self-contained HTML article (deployable to Vercel)
+├── writeup.md                     # Full report in markdown — renders on GitHub
+├── README.md                      # This file
+├── LICENSE                        # MIT
+└── requirements.txt
 ```
 
-## Quick Start
+## Reproducing the analysis
 
 ```bash
 git clone https://github.com/lyhjeremy/boston-marathon-qualifying-fairness.git
 cd boston-marathon-qualifying-fairness
 pip install -r requirements.txt
-
-# Reproduce everything from scratch
 python src/analysis.py
-python src/generate_pdf.py
-python src/generate_html.py
-python src/build_notebook.py
 ```
 
-## Data Sources
+Or open `notebooks/boston_bq_fairness_analysis.ipynb` in Jupyter / VS Code and run all cells.
 
-| Dataset | Source | Verification |
-|---------|--------|--------------|
-| BQ Standards | [baa.org](https://www.baa.org/races/boston-marathon/qualify/) | All 22 brackets verified directly from BAA |
-| Open WRs | World Athletics | Sawe 1:59:30, Chepngetich 2:09:56 |
-| Masters WRs | [Wikipedia / WMA](https://en.wikipedia.org/wiki/List_of_masters_world_records_in_road_running) | Cross-referenced against WMA ratified records |
-| WMA Factors | [WMA 2023 Appendix B](https://howardgrubb.co.uk/athletics/wmatnf23.html) | Official WMA tables |
-| Field Size | BAA press releases | 24,362 accepted / 4:34 cutoff |
+## Data sources
 
-## Limitations
-
-- Non-binary athletes excluded (BAA itself notes insufficient data)
-- Top-3 Framework uses estimated depth factors, not verified 2nd/3rd place times
-- Under-35 brackets use open WR as reference (no separate masters record exists)
-- n = 11 per gender — formal statistical tests are underpowered
+| Dataset | Source |
+|---------|--------|
+| 2026 BQ Standards | [baa.org](https://www.baa.org/races/boston-marathon/qualify/) |
+| Open Marathon WRs | World Athletics |
+| Masters Marathon WRs | [Wikipedia / WMA](https://en.wikipedia.org/wiki/List_of_masters_world_records_in_road_running) |
+| WMA Age Factors | [WMA 2023 Appendix B](https://howardgrubb.co.uk/athletics/wmatnf23.html) |
+| Field Size Metrics | BAA press releases |
 
 ## License
 
