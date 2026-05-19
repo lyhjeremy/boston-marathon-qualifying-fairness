@@ -1,0 +1,23 @@
+age_group,gender,midpoint_age,wma_factor,wma_standard_seconds,source_note
+18-34,M,26,1.0000,7170,Open standard = current WR Sawe 1:59:30
+18-34,W,26,1.0000,7796,Open standard = current WR Chepngetich 2:09:56
+35-39,M,37,0.9880,7170,WMA 2023 factors - marathon male age 37
+35-39,W,37,0.9820,7796,WMA 2023 factors - marathon female age 37
+40-44,M,42,0.9580,7170,WMA 2023 factors - marathon male age 42
+40-44,W,42,0.9450,7796,WMA 2023 factors - marathon female age 42
+45-49,M,47,0.9200,7170,WMA 2023 factors - marathon male age 47
+45-49,W,47,0.9010,7796,WMA 2023 factors - marathon female age 47
+50-54,M,52,0.8760,7170,WMA 2023 factors - marathon male age 52
+50-54,W,52,0.8520,7796,WMA 2023 factors - marathon female age 52
+55-59,M,57,0.8270,7170,WMA 2023 factors - marathon male age 57
+55-59,W,57,0.7990,7796,WMA 2023 factors - marathon female age 57
+60-64,M,62,0.7740,7170,WMA 2023 factors - marathon male age 62
+60-64,W,62,0.7430,7796,WMA 2023 factors - marathon female age 62
+65-69,M,67,0.7180,7170,WMA 2023 factors - marathon male age 67
+65-69,W,67,0.6850,7796,WMA 2023 factors - marathon female age 67
+70-74,M,72,0.6600,7170,WMA 2023 factors - marathon male age 72
+70-74,W,72,0.6260,7796,WMA 2023 factors - marathon female age 72
+75-79,M,77,0.6010,7170,WMA 2023 factors - marathon male age 77
+75-79,W,77,0.5670,7796,WMA 2023 factors - marathon female age 77
+80+,M,82,0.5420,7170,WMA 2023 factors - marathon male age 82
+80+,W,82,0.5090,7796,WMA 2023 factors - marathon female age 82

@@ -1,0 +1,9 @@
+metric,value,source
+total_applications,33249,BAA official 2026
+accepted_qualifiers,24362,BAA official 2026
+accepted_men,13823,BAA official 2026
+accepted_women,10429,BAA official 2026
+accepted_nonbinary,110,BAA official 2026
+cutoff_seconds,274,BAA official - 4:34 under BQ
+field_size_cap,30000,BAA official
+qualifiers_not_accepted,8887,BAA official 2026

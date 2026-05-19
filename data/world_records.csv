@@ -1,0 +1,23 @@
+age_group,gender,wr_time_hhmmss,wr_time_seconds,athlete,year,source_note
+18-34,M,1:59:30,7170,Sabastian Sawe,2026,London Marathon 2026 - verified World Athletics
+18-34,W,2:09:56,7796,Ruth Chepngetich,2024,Chicago Marathon 2024 - mixed race WR verified
+35-39,M,1:59:30,7170,Sabastian Sawe,2026,Using open WR (no separate M35 marathon WR faster than open; Sawe was 31)
+35-39,W,2:09:56,7796,Ruth Chepngetich,2024,Using open WR - no separate W35 record faster
+40-44,M,2:04:15,7455,Kenenisa Bekele,2024,London Marathon 2024 age 41 - Wikipedia masters M40
+40-44,W,2:22:27,8547,Mariya Konovalova,2015,Nagoya Womens Marathon age 40 - Wikipedia masters W40
+45-49,M,2:09:12,7752,Mark Kiptoo,2023,Zurich Marathon age 46 - Wikipedia masters M45
+45-49,W,2:21:34,8494,Sinead Diver,2022,Valencia Marathon age 45 - Wikipedia masters W45
+50-54,M,2:19:29,8369,Titus Mamabolo,1991,Durban age 50 - Wikipedia masters M50
+50-54,W,2:31:05,9065,Tatyana Pozdniakova,2005,LA Marathon age 50 - Wikipedia masters W50
+55-59,M,2:24:05,8645,Aleksandr Rogoten,2024,Berlin Marathon age 55 - Wikipedia masters M55
+55-59,W,2:45:27,9927,Jenny Hitchings,2023,London Marathon age 59 - Wikipedia masters W55
+60-64,M,2:30:02,9002,Tommy Hughes,2020,Lisburn age 60 - Wikipedia masters M60
+60-64,W,2:49:43,10183,Jenny Hitchings,2023,Chicago Marathon age 60 - Wikipedia masters W60
+65-69,M,2:41:57,9717,Derek Turnbull,1992,London Marathon age 65 - Wikipedia masters M65
+65-69,W,2:59:06,10746,Mariko Yugeta,2025,Kobe Marathon age 67 - Wikipedia masters W65
+70-74,M,2:54:19,10459,Joseph Schoonbroodt,2022,Maas Marathon age 71 - Wikipedia masters M70
+70-74,W,3:24:48,12288,Jeannie Rice,2019,Berlin Marathon age 71 - Wikipedia masters W70
+75-79,M,3:04:53,11093,Ed Whitlock,2007,Rotterdam Marathon age 76 - Wikipedia masters M75
+75-79,W,3:33:27,12807,Jeannie Rice,2024,London Marathon age 76 - Wikipedia masters W75
+80+,M,3:15:54,11754,Ed Whitlock,2011,Toronto Waterfront age 80 - Wikipedia masters M80
+80+,W,4:11:45,15105,Yoko Nakano,2017,Tokyo Marathon age 81 - Wikipedia masters W80
