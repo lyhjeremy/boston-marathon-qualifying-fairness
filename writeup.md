@@ -2,7 +2,7 @@
 
 **A Three-Framework Comparative Analysis of BQ Standards Across Age and Gender**
 
-*Jeremy Lee · May 2026 · [github.com/lyhjeremy/boston-bq-fairness](https://github.com/lyhjeremy/boston-bq-fairness)*
+*Jeremy Lee · May 2026 · [github.com/lyhjeremy/boston-marathon-qualifying-fairness](https://github.com/lyhjeremy/boston-marathon-qualifying-fairness)*
 
 > 📄 This is the same content as the [PDF report](reports/Boston_BQ_Three_Frameworks_Report.pdf) and [Word doc](reports/Boston_BQ_Three_Frameworks_Report.docx), reformatted for easy reading directly on GitHub. For the interactive analysis, see the [Jupyter notebook](notebooks/boston_bq_fairness_analysis.ipynb).
 
@@ -210,8 +210,8 @@ All code, data, and outputs are in this repository:
 To reproduce everything from scratch:
 
 ```bash
-git clone https://github.com/lyhjeremy/boston-bq-fairness.git
-cd boston-bq-fairness
+git clone https://github.com/lyhjeremy/boston-marathon-qualifying-fairness.git
+cd boston-marathon-qualifying-fairness
 pip install -r requirements.txt
 python src/analysis.py
 ```
