@@ -4,6 +4,8 @@ A three-framework comparative analysis of Boston Athletic Association qualifying
 
 📊 **[Read the full writeup →](writeup.md)** &nbsp;·&nbsp; 📄 [PDF report](reports/Boston_BQ_Three_Frameworks_Report.pdf) &nbsp;·&nbsp; 📝 [Word doc](reports/Boston_BQ_Three_Frameworks_Report.docx) &nbsp;·&nbsp; 📓 [Notebook](notebooks/boston_bq_fairness_analysis.ipynb)
 
+> 📖 **In depth:** https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/overview/
+
 ---
 
 ## What this is

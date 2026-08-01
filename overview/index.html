@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Are Boston's qualifying times fair? — the popular criticism doesn't survive testing</title>
+<meta name="description" content="Three independent frameworks across 22 age-gender brackets. No mean-level gender bias (p = 0.81), but women's brackets are 3-4x more variable than men's, and W80+ is 57 minutes too strict." />
+<meta name="theme-color" content="#FBF8F1" />
+<meta property="og:title" content="Are Boston's qualifying times fair?" />
+<meta property="og:description" content="The claim is that Boston is unfair to women. It isn't, on the mean. The real problem is variance, and one bracket." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/overview/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #FBF8F1;
+    --card: #FFFFFF;
+    --plate: #FFFFFF;
+    --ink: #1a1a2e;
+    --ink2: #3d3d55;
+    --muted: #6B7280;
+    --rule: #E5DCC7;
+    --accent: #7a1f2b;
+    --accent2: #0E7490;
+    --link: #0E7490;
+    --serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+    --sans: 'Source Sans 3', -apple-system, system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+    --shadow: 0 1px 2px rgba(26,26,46,.05), 0 10px 34px rgba(26,26,46,.07);
+    --spine:  92px;
+    --col:    min(100% - 2.6rem, 62rem);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14141f;
+      --card: #1c1c2a;
+      --plate: #f7f4ec;
+      --ink: #F2EFE6;
+      --ink2: #C9C4B6;
+      --muted: #918B7D;
+      --rule: #33313f;
+      --accent: #E0899A;
+      --accent2: #22D3EE;
+      --link: #22D3EE;
+      --shadow: 0 1px 2px rgba(0,0,0,.32), 0 10px 34px rgba(0,0,0,.4);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--serif); font-size: clamp(17px, 0.55rem + 0.6vw, 19.5px);
+    line-height: 1.68; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--link); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  strong { font-weight: 700; color: var(--ink); }
+  code { font-family: var(--mono); font-size: .86em;
+         background: color-mix(in srgb, var(--ink) 7%, transparent);
+         padding: .12em .38em; border-radius: 4px; }
+  .wrap { width: var(--col); margin: 0 auto; }
+
+  .eyebrow { font-family: var(--mono); font-weight: 600; font-size: 11.5px;
+             letter-spacing: .17em; text-transform: uppercase; color: var(--muted);
+             margin: 0 0 14px; }
+
+  .masthead { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; padding: 30px 0 0; }
+  .logo { font-family: var(--sans); font-weight: 800; font-size: 21px;
+          letter-spacing: -.02em; display: flex; align-items: center; gap: 9px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: none; }
+  .tagline { font-size: 15px; color: var(--ink2); font-family: var(--sans); }
+
+  .hero { padding: 44px 0 54px; }
+  .kicker { font-family: var(--sans); font-size: clamp(18px, 2.1vw, 23px); font-weight: 600;
+            color: var(--muted); margin: 0 0 8px; letter-spacing: -.01em; }
+  .hero h1 { font-family: var(--sans); font-size: clamp(37px, 6vw, 72px); font-weight: 800;
+             letter-spacing: -.035em; line-height: 1.04; margin: 0; max-width: 17ch; }
+  .hero-sub { margin: 24px 0 0; font-size: 1.06em; color: var(--ink2); max-width: 60ch; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; align-items: center; }
+  .btn { display: inline-block; padding: 13px 26px; border-radius: 8px;
+         font-family: var(--sans); font-weight: 700; font-size: 16px;
+         text-decoration: none; border: 1px solid var(--ink); transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .textlink { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink2);
+              text-decoration: underline; text-underline-offset: 4px;
+              text-decoration-thickness: 1px; }
+  .textlink:hover { color: var(--ink); }
+
+  .claims { display: grid; grid-template-columns: 1fr; gap: 0 52px; margin: 50px 0 0; }
+  @media (min-width: 760px) { .claims { grid-template-columns: 1fr 1fr; } }
+  .claim { padding: 18px 0 20px; border-top: 1px solid var(--rule); }
+  .claim:first-child, .claim:nth-child(2) { border-top: 2px solid var(--ink); }
+  @media (max-width: 759px) { .claim:nth-child(2) { border-top: 1px solid var(--rule); } }
+  .claim .n { font-family: var(--sans); font-weight: 800; font-size: 40px; line-height: 1.05;
+              color: var(--accent); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .claim h3 { margin: 0 0 6px; }
+  .claim p { margin: 9px 0 0; font-size: 15.5px; color: var(--ink2); line-height: 1.5;
+             font-family: var(--sans); }
+
+  .route { position: relative; padding-bottom: 30px; }
+  .route::before { content: ""; position: absolute; left: calc(var(--spine) / 2); top: 8px;
+                   bottom: 80px; width: 2px; background: var(--rule); }
+  .stop { position: relative; padding: 0 0 76px var(--spine); }
+  .stop::before { content: ""; position: absolute; left: calc(var(--spine) / 2 - 7px); top: 7px;
+                  width: 16px; height: 16px; border-radius: 50%;
+                  background: var(--paper); border: 2px solid var(--ink); box-sizing: border-box; }
+  .stop--key::before { background: var(--accent); border-color: var(--accent); }
+  .stop--warn::before { background: var(--accent2); border-color: var(--accent2); }
+  .stop--end::before { background: var(--ink); }
+
+  h2 { font-family: var(--sans); font-size: clamp(27px, 3.7vw, 38px); font-weight: 800;
+       letter-spacing: -.027em; line-height: 1.13; margin: 12px 0 16px; max-width: 19ch; }
+  h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 0 0 7px;
+       letter-spacing: -.012em; }
+  .stop p { margin: 0 0 17px; max-width: 60ch; color: var(--ink2); }
+
+  .bignum { font-family: var(--sans); font-weight: 800; font-size: clamp(74px, 10vw, 128px);
+            line-height: .86; letter-spacing: -.05em; margin: 6px 0 4px; color: var(--accent);
+            font-variant-numeric: tabular-nums; }
+  .bignum-note { font-family: var(--sans); font-size: 16px; color: var(--muted); margin: 0 0 20px; }
+
+  /* A white-background chart would glow in dark mode; the plate makes it read
+     as a deliberately printed page instead. */
+  figure { margin: 28px 0 0; }
+  .plate { background: var(--plate); border: 1px solid var(--rule); border-radius: 10px;
+           padding: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .plate img { border-radius: 4px; }
+  .plate--flush { padding: 0; }
+  .shot { border-radius: 10px; border: 1px solid var(--rule); box-shadow: var(--shadow);
+          overflow: hidden; background: var(--card); }
+  /* min() so the cap never exceeds the column on a phone */
+  .shot--narrow { max-width: min(430px, 100%); }
+  figcaption { margin-top: 11px; font-family: var(--sans); font-size: 14.5px;
+               color: var(--muted); line-height: 1.5; }
+  .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+            gap: 22px; margin-top: 28px; }
+  .panels figure { margin: 0; }
+
+  .pull { margin: 30px 0 0; padding: 20px 25px; border-left: 3px solid var(--accent);
+          background: color-mix(in srgb, var(--accent) 7%, transparent);
+          border-radius: 0 8px 8px 0; }
+  .pull p { margin: 0 0 9px; color: var(--ink); max-width: none; }
+  .pull p:last-of-type { margin: 0; }
+  .pull .who { font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+               text-transform: uppercase; color: var(--muted); display: block; margin-top: 9px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+          gap: 1px; margin-top: 28px; background: var(--rule);
+          border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+  .cell { background: var(--paper); padding: 22px 20px; }
+  .cell p { font-size: 15px; margin: 0; color: var(--ink2); max-width: none;
+            line-height: 1.55; font-family: var(--sans); }
+
+  /* results tables: scroll inside their own box, never the page */
+  .tablewrap { margin-top: 26px; overflow-x: auto; border: 1px solid var(--rule);
+               border-radius: 10px; background: var(--card); }
+  table { border-collapse: collapse; width: 100%; min-width: 480px;
+          font-family: var(--sans); font-size: 15.5px; }
+  th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--rule); }
+  th { font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+       text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  td { color: var(--ink2); font-variant-numeric: tabular-nums; }
+  tr:last-child td { border-bottom: 0; }
+  .win td { color: var(--ink); font-weight: 700;
+            background: color-mix(in srgb, var(--accent) 8%, transparent); }
+
+  /* real terminal output, quoted verbatim */
+  .term { margin-top: 26px; background: #14141f; color: #e6e3da; border-radius: 10px;
+          padding: 18px 20px; overflow-x: auto; box-shadow: var(--shadow);
+          border: 1px solid #2a2a3a; }
+  .term pre { margin: 0; font-family: var(--mono); font-size: 13px; line-height: 1.62;
+              white-space: pre; }
+  .term .c { color: #9aa08f; }
+  .term .g { color: #7fd18f; }
+  .term .y { color: #E3BC5E; }
+
+  .specs { margin-top: 26px; border-top: 1px solid var(--rule); }
+  .spec { display: grid; grid-template-columns: 1fr; gap: 2px;
+          padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  @media (min-width: 700px) { .spec { grid-template-columns: 178px 1fr; gap: 24px; } }
+  .spec dt { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em;
+             text-transform: uppercase; color: var(--muted); padding-top: 4px; }
+  .spec dd { margin: 0; font-size: 16px; color: var(--ink2); font-family: var(--sans); }
+
+  .close { padding: 6px 0 80px var(--spine); position: relative; }
+  .close h2 { max-width: 20ch; }
+  footer { border-top: 1px solid var(--rule); padding: 28px 0 60px;
+           font-family: var(--sans); font-size: 14.5px; color: var(--muted); }
+  footer a { color: var(--ink2); }
+  footer p { margin: 0 0 8px; }
+
+  @media (max-width: 640px) {
+    :root { --spine: 38px; }
+    .hero { padding: 36px 0 46px; }
+    .stop { padding-bottom: 58px; }
+    .plate { padding: 9px; }
+    .term { padding: 14px 14px; }
+    .term pre { font-size: 11.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="logo"><span class="dot" aria-hidden="true"></span>Boston BQ Fairness</div>
+    <div class="tagline">22 brackets, three frameworks</div>
+  </header>
+
+  <section class="hero">
+    <p class="kicker">The usual complaint is that Boston is unfair to women.</p>
+    <h1>It isn't. The real problem is a different one.</h1>
+
+    <p class="hero-sub">
+      The BAA publishes qualifying times for <strong>22 age-gender brackets</strong>
+      and has never explained how it sets them. Tested against three independent
+      fairness frameworks, the gender-bias claim <strong>does not survive</strong>:
+      a Welch t-test on the means returns <strong>p = 0.81</strong>. What does show
+      up is <strong>variance</strong> — women's brackets are three to four times
+      less consistent than men's — and one bracket, <strong>W80+</strong>, that is
+      about <strong>57 minutes too strict</strong> under every framework tried.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="../writeup.md">Read the full writeup</a>
+      <a class="textlink" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">or the code and data</a>
+    </div>
+
+    <div class="claims">
+      <div class="claim">
+        <div class="n">p = 0.81</div>
+        <p>Welch t-test on gender means under the world-record framework. There is
+           no mean-level bias to find.</p>
+      </div>
+      <div class="claim">
+        <div class="n">1.9% vs 6.6%</div>
+        <p>coefficient of variation, men against women. The inconsistency is the
+           finding, not the average.</p>
+      </div>
+      <div class="claim">
+        <div class="n">57 min</div>
+        <p>how much stricter W80+ is than a uniform multiplier would imply.
+           Current standard 5:20:00; uniform would be 6:17:20.</p>
+      </div>
+      <div class="claim">
+        <div class="n">1.50×</div>
+        <p>the median standard across all brackets — a BQ is typically 50% slower
+           than that bracket's world record.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+<div class="route">
+
+  <section class="stop">
+    <p class="eyebrow">Start · the question</p>
+    <h2>Nobody outside the BAA knows how these numbers are set</h2>
+    <p>
+      Boston is one of the few big marathons you cannot simply enter. It publishes
+      a qualifying time for each of 11 age groups across two genders, those times
+      decide who gets to run, and the methodology behind them has never been made
+      public.
+    </p>
+    <p>
+      That makes "are they fair?" answerable only by proxy: pick a reference for
+      how hard each bracket <em>should</em> be, and check whether the standards
+      demand the same proportional effort of everyone. Since any single reference
+      is arguable, this uses three.
+    </p>
+    <div class="grid">
+      <div class="cell">
+        <h3>1 · World-record multiplier</h3>
+        <p>The BQ time as a multiple of that bracket's world record. Simple and
+           transparent, and sensitive to a single freak record.</p>
+      </div>
+      <div class="cell">
+        <h3>2 · Top-three records</h3>
+        <p>The same idea with an averaged top-three reference, to test whether one
+           outlier performance is driving the result.</p>
+      </div>
+      <div class="cell">
+        <h3>3 · WMA age grading</h3>
+        <p>Difficulty relative to age-specific biological potential, using the
+           official WMA 2023 factors. A different notion of "should" entirely.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop stop--key">
+    <p class="eyebrow">↓ the first result</p>
+    <h2>The gender-bias claim does not hold</h2>
+
+    <div class="bignum">p = 0.81</div>
+    <p class="bignum-note">Welch t-test on the gender means, world-record framework. t = −0.25.</p>
+
+    <p>
+      Under age grading the answer is the same: men's brackets average
+      <strong>68.3%</strong> of age-graded potential, women's
+      <strong>69.0%</strong>, <strong>t = 0.42, p = 0.68</strong>. Whichever
+      reference you pick, the two genders are asked for the same average effort.
+    </p>
+    <p>
+      This is the sort of result worth stating plainly even though it is the
+      boring one. The widely repeated criticism is about the mean, and the mean is
+      fine.
+    </p>
+    <figure>
+      <div class="plate">
+        <img width="5709" height="2910" src="../outputs/figures/fig1_wr_multiplier.png" fetchpriority="high"
+          alt="Bar chart of the world-record multiplier for each of the 22 age-gender brackets, with men's bars clustered tightly around 1.5 and women's bars spread more widely from about 1.27 to 1.62." />
+      </div>
+      <figcaption>
+        Every bracket as a multiple of its own world record. Look at the spread
+        rather than the height.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="stop stop--warn">
+    <p class="eyebrow">↓ the result that does hold</p>
+    <h2>Men's standards are consistent. Women's are not.</h2>
+    <p>
+      Men's brackets cluster inside a range of <strong>1.43× to 1.53×</strong>, a
+      coefficient of variation of <strong>1.9%</strong>. Women's run from
+      <strong>1.27× to 1.62×</strong>, a CV of <strong>6.6%</strong>. Levene's test
+      for equal variance returns <strong>W = 5.04, p = 0.036</strong>.
+    </p>
+    <p>
+      That 0.35× gap is the core inconsistency. <strong>W35–39 at 1.62×</strong> is
+      the most lenient bracket in the whole table; <strong>W80+ at 1.27×</strong>
+      is the strictest. Two women of different ages, both meeting their standard,
+      are not being asked for remotely the same thing.
+    </p>
+    <p>
+      Averaging the top three performances instead of using a single record barely
+      moves it — women's CV goes from 6.6% to <strong>7.3%</strong>. So this is not
+      one freak record distorting the picture. The structural gaps in older women's
+      brackets survive a more conservative reference.
+    </p>
+    <div class="panels">
+      <figure>
+        <div class="plate">
+          <img width="4109" height="2511" src="../outputs/figures/fig3_cv_comparison.png" loading="lazy"
+            alt="Comparison of coefficient of variation between men's and women's brackets across the three frameworks, with women's variation consistently three to four times higher." />
+        </div>
+        <figcaption><strong>Variance</strong> — the gap holds in all three frameworks.</figcaption>
+      </figure>
+      <figure>
+        <div class="plate">
+          <img width="7308" height="2620" src="../outputs/figures/fig2_framework_comparison.png" loading="lazy"
+            alt="Side-by-side comparison of bracket difficulty under the world-record, top-three and age-graded frameworks, showing broadly the same structural pattern in each." />
+        </div>
+        <figcaption><strong>Three frameworks</strong> — same structure, different scales.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stop stop--key">
+    <p class="eyebrow">↓ the one indefensible number</p>
+    <h2>W80+ is too hard, whichever way you measure it</h2>
+    <p>
+      The current W80+ standard is <strong>5:20:00</strong>. A uniform multiplier
+      across all brackets would put it at <strong>6:17:20</strong> — a gap of
+      <strong>57 minutes</strong>. Under age grading the gap is
+      <strong>56 minutes</strong>. Two frameworks built on completely different
+      premises land within a minute of each other.
+    </p>
+    <p>
+      The cause is visible once you look at the reference: Yoko Nakano's
+      <strong>4:11:45</strong> is an extraordinary record, and pinning a standard
+      to a fixed proportion of it asks eighty-year-old women to come within 27% of
+      one of the great age-group performances in the sport.
+    </p>
+    <p>
+      This is the single most defensible criticism in the whole analysis. It does
+      not require agreeing with any particular notion of fairness — every
+      framework flags the same bracket.
+    </p>
+    <div class="panels">
+      <figure>
+        <div class="plate">
+          <img width="8032" height="2617" src="../outputs/figures/fig5_heatmap.png" loading="lazy"
+            alt="Deviation heatmap across brackets and frameworks, with red cells marking brackets harder than average. The W80+ row is red across every framework." />
+        </div>
+        <figcaption><strong>The heatmap</strong> — W80+ is red in every column.</figcaption>
+      </figure>
+      <figure>
+        <div class="plate">
+          <img width="7308" height="3083" src="../outputs/figures/fig4_fair_vs_actual.png" loading="lazy"
+            alt="Current qualifying standards plotted against the standard each framework would suggest, with W80+ showing the largest divergence." />
+        </div>
+        <figcaption><strong>Actual against uniform</strong> — where the gaps are.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stop">
+    <p class="eyebrow">↓ did 2026 help</p>
+    <h2>The tightening answered demand, not fairness</h2>
+    <p>
+      2026 brought the largest tightening since 1990 — five minutes across the
+      board for everyone under 60 — in response to <strong>33,249 applications for
+      roughly 24,000 spots</strong>. It is reasonable to ask whether that also
+      improved consistency.
+    </p>
+    <p>
+      It did not. The change lowered every under-60 multiplier by roughly the same
+      proportion and left the 60+ brackets untouched, so the relative structure is
+      unchanged. Women's CV was about <strong>6.8%</strong> under the 2020–2025
+      standards and <strong>6.6%</strong> under 2026. Effectively identical.
+    </p>
+    <figure>
+      <div class="plate">
+        <img width="6105" height="2620" src="../outputs/figures/fig7_historical.png" loading="lazy"
+          alt="Comparison of 2020-2025 and 2026 qualifying standards as world-record multipliers, showing a uniform downward shift within each gender and no change in relative bracket structure." />
+      </div>
+      <figcaption>2020–2025 against 2026. Everything moved down together.</figcaption>
+    </figure>
+  </section>
+
+  <section class="stop">
+    <p class="eyebrow">↓ is it an artefact</p>
+    <h2>Testing whether the variance gap is real</h2>
+    <p>
+      A result this dependent on reference records deserves stress-testing, so the
+      analysis re-runs under alternative anchors: dropping W80+ entirely, and
+      swapping the women's open record for Tigst Assefa's women-only
+      <strong>2:15:41</strong> instead of the mixed-race mark.
+    </p>
+    <p>
+      Men's CV stays at <strong>1.9%</strong> in every scenario, which confirms
+      there is no comparable outlier hiding in the men's data. Women's CV drops to
+      <strong>4.5%</strong> only when W80+ is removed altogether; alternative record
+      choices move it by less than <strong>0.3 percentage points</strong>. The gap
+      is genuine.
+    </p>
+    <figure>
+      <div class="plate">
+        <img width="4505" height="2510" src="../outputs/figures/fig8_sensitivity.png" loading="lazy"
+          alt="Sensitivity analysis across alternative scenarios, with men's coefficient of variation flat at 1.9 percent and women's falling only when W80+ is excluded." />
+      </div>
+      <figcaption>Four scenarios. Only removing W80+ changes the picture.</figcaption>
+    </figure>
+    <figure>
+      <div class="plate">
+        <img width="5711" height="3310" src="../outputs/figures/fig6_alternative_bq.png" loading="lazy"
+          alt="Alternative qualifying-time tables generated under each of the three frameworks, shown alongside the current standards." />
+        </div>
+      <figcaption>What each framework would set the standards to, if applied uniformly.</figcaption>
+    </figure>
+  </section>
+
+  <section class="stop stop--warn">
+    <p class="eyebrow">↓ what this cannot tell you</p>
+    <h2>Eleven brackets per gender is a small sample</h2>
+    <p>
+      With <strong>n = 11</strong> per gender the formal tests are underpowered.
+      Levene's test at <strong>p = 0.036</strong> clears the conventional threshold
+      and should still be read cautiously, and the same caution applies to reading
+      too much into a p = 0.81 as evidence of <em>no</em> difference rather than
+      simply no detected one.
+    </p>
+    <p>
+      The top-three framework is explicitly an approximation. Second and third
+      performances are <strong>estimated</strong> at 3% and 6% slower than the
+      record for well-contested brackets, and 5% and 10% for thin ones, rather than
+      looked up. It is a robustness check, not a measurement, and the writeup
+      flags it throughout.
+    </p>
+    <p>
+      Non-binary athletes — 110 accepted in 2026 — are excluded, because the BAA
+      itself states it has insufficient data to set appropriate standards for the
+      category. That is a real gap in the analysis rather than a judgement about it.
+    </p>
+    <p>
+      Finally, "fair" here means <em>equal proportional difficulty against a
+      reference</em>. That is one defensible definition among several. A field-size
+      or participation-based definition could reach different conclusions from the
+      same standards.
+    </p>
+  </section>
+
+  <section class="stop stop--end">
+    <p class="eyebrow">Finish · how it was built</p>
+    <h2>Where the numbers come from</h2>
+    <dl class="specs">
+      <div class="spec"><dt>Standards</dt><dd>2026 BAA qualifying times, direct from <a href="https://www.baa.org/races/boston-marathon/qualify/">baa.org</a></dd></div>
+      <div class="spec"><dt>Open records</dt><dd>World Athletics — men 1:59:30, women's mixed 2:09:56</dd></div>
+      <div class="spec"><dt>Masters records</dt><dd>M35 through W80+, compiled from the WMA list and cross-referenced against ratified records</dd></div>
+      <div class="spec"><dt>Age factors</dt><dd>WMA 2023 Appendix B</dd></div>
+      <div class="spec"><dt>Field size</dt><dd>BAA press releases — 24,362 accepted qualifiers, 4:34 cutoff</dd></div>
+      <div class="spec"><dt>Scope</dt><dd>22 brackets: 11 age groups × 2 genders</dd></div>
+      <div class="spec"><dt>Reproduce</dt><dd><code>pip install -r requirements.txt</code> then <code>python src/analysis.py</code></dd></div>
+      <div class="spec"><dt>Also ships</dt><dd>A Jupyter notebook, PDF and Word reports, and a standalone HTML article</dd></div>
+      <div class="spec"><dt>Sibling</dt><dd><a href="https://lyhjeremy.github.io/athletics-scoring-fairness/">Auditing the Scoring Tables</a>, the same fairness question asked of World Athletics points</dd></div>
+    </dl>
+  </section>
+
+</div>
+</div>
+
+<div class="wrap">
+  <section class="close">
+    <h2>Not biased on the mean. Inconsistent at the edges.</h2>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="../writeup.md">Read the full writeup</a>
+      <a class="textlink" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">or the code and data</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Boston BQ Fairness ·
+      <a href="../">Showcase</a> ·
+      <a href="../writeup.md">Writeup</a> ·
+      <a href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">Source</a> ·
+      MIT © 2026 Jeremy Lee
+    </p>
+    <p>Data current as of May 2026.</p>
+  </footer>
+</div>
+</body>
+</html>
