@@ -244,12 +244,12 @@ children.push(new Paragraph({
 }));
 children.push(p('Under WMA age grading, the median age-graded percentage required to qualify for Boston is 67.9%. Men\u2019s brackets average 68.3% (CV = 4.0%), women\u2019s 69.0% (CV = 7.8%). Welch t-test: t = 0.42, p = 0.68, again showing no significant mean-level gender difference. The age-graded framework reveals something the WR framework obscures: older brackets (75-79, 80+) are substantially harder than they appear, because the WMA factors expect steeper performance decline than the BQ standards allow for.'));
 
-// Figure 2 (fig3 — CV comparison)
+// Figure 2 (fig3, CV comparison)
 imageBlock('fig3_cv_comparison.png', 520, 312,
   'Figure 2. Coefficient of variation across frameworks. Women\u2019s brackets are 3-4x more variable than men\u2019s under all three frameworks.'
 ).forEach(b => children.push(b));
 
-// Figure 3 (fig4 — Fair vs Actual)
+// Figure 3 (fig4, Fair vs Actual)
 imageBlock('fig4_fair_vs_actual.png', 600, 300,
   'Figure 3. Difference between current BQ and \u201Cfair\u201D BQ (in minutes). Positive = current BQ is lenient; negative = current BQ is strict.'
 ).forEach(b => children.push(b));
@@ -278,7 +278,7 @@ children.push(pRich([
   'Under the WR framework, the current BQ is 57 minutes too strict relative to what a uniform multiplier would suggest. Under age-grading, it is 56 minutes too strict. This is the single most defensible critique: regardless of which framework you prefer, the W80+ standard appears too hard.',
 ]));
 
-// Figure 4 (fig5 — heatmap)
+// Figure 4 (fig5, heatmap)
 imageBlock('fig5_heatmap.png', 600, 270,
   'Figure 4. Deviation heatmaps. Red cells = bracket is harder than average; green = easier than average. W80+ is consistently red across all frameworks.'
 ).forEach(b => children.push(b));

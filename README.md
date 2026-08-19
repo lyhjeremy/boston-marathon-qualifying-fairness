@@ -1,10 +1,12 @@
 # Are Boston Marathon Qualifying Times Fair?
 
+Design and copy follow [these standards](https://github.com/lyhjeremy/lyhjeremy/blob/main/DESIGN_STANDARDS.md).
+
 A three-framework comparative analysis of Boston Athletic Association qualifying standards across age and gender brackets.
 
-📊 **[Read the full writeup →](writeup.md)** &nbsp;·&nbsp; 📄 [PDF report](reports/Boston_BQ_Three_Frameworks_Report.pdf) &nbsp;·&nbsp; 📝 [Word doc](reports/Boston_BQ_Three_Frameworks_Report.docx) &nbsp;·&nbsp; 📓 [Notebook](notebooks/boston_bq_fairness_analysis.ipynb)
+**[Read the full writeup →](writeup.md)** &nbsp;·&nbsp; [PDF report](reports/Boston_BQ_Three_Frameworks_Report.pdf) &nbsp;·&nbsp; [Word doc](reports/Boston_BQ_Three_Frameworks_Report.docx) &nbsp;·&nbsp; [Notebook](notebooks/boston_bq_fairness_analysis.ipynb)
 
-> 📖 **In depth:** https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/overview/
+> **In depth:** https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/overview/
 
 ---
 
@@ -12,17 +14,17 @@ A three-framework comparative analysis of Boston Athletic Association qualifying
 
 The BAA publishes qualifying times for 22 age-gender brackets but has never explained how those numbers are set. This project applies three independent fairness frameworks to ask whether the standards demand equal proportional effort across all brackets:
 
-1. **World Record Multiplier** — BQ time as a multiple of the bracket's world record
-2. **Top-3 Records** — Robustness check using averaged top performances
-3. **WMA Age-Graded Scoring** — Difficulty relative to age-specific biological potential
+1. **World Record Multiplier.** BQ time as a multiple of the bracket's world record
+2. **Top-3 Records.** Robustness check using averaged top performances
+3. **WMA Age-Graded Scoring.** Difficulty relative to age-specific biological potential
 
 Plus historical comparison (did the 2026 tightening change the picture?) and sensitivity analysis (are conclusions robust to outliers and alternative reference records?).
 
 ## Headline findings
 
-- **No mean-level gender bias** — Welch t-test p = 0.81 across all frameworks
-- **Women's brackets are 3-4× more variable than men's** — CV 6.6% vs 1.9% under WR framework
-- **W80+ is the most miscalibrated bracket** — 57 minutes too strict under WR, 56 min under age-grading
+- **No mean-level gender bias.** Welch t-test p = 0.81 across all frameworks
+- **Women's brackets are 3-4× more variable than men's.** CV 6.6% vs 1.9% under WR framework
+- **W80+ is the most miscalibrated bracket.** 57 minutes too strict under WR, 56 min under age-grading
 
 Full methodology, statistical tests, and bracket-by-bracket results in [`writeup.md`](writeup.md).
 
@@ -36,7 +38,7 @@ boston-marathon-qualifying-fairness/
 ├── outputs/                       # Generated figures (400 DPI) and results CSV
 ├── reports/                       # PDF and Word versions of the writeup
 ├── web/                           # Self-contained HTML article (deployable to Vercel)
-├── writeup.md                     # Full report in markdown — renders on GitHub
+├── writeup.md                     # Full report in markdown, renders on GitHub
 ├── README.md                      # This file
 ├── LICENSE                        # MIT
 └── requirements.txt
@@ -65,8 +67,8 @@ Or open `notebooks/boston_bq_fairness_analysis.ipynb` in Jupyter / VS Code and r
 
 ## License
 
-MIT — see [LICENSE](LICENSE)
+MIT, see [LICENSE](LICENSE)
 
 ## Author
 
-Jeremy Lee — [github.com/lyhjeremy](https://github.com/lyhjeremy)
+Jeremy Lee, [github.com/lyhjeremy](https://github.com/lyhjeremy)

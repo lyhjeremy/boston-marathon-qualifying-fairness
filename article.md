@@ -7,7 +7,7 @@ tags: [boston-marathon, running, data-analysis, python, side-project]
 ---
 
 ![A pack of marathon runners stretched across a city street at golden hour](./images/hero-marathon-runners.jpg)
-*[HERO IMAGE: marathoners at sunrise — see "Image credits" at the end for free-licensed sources]*
+*[HERO IMAGE: marathoners at sunrise, see "Image credits" at the end for free-licensed sources]*
 
 ## The argument that wouldn't die
 
@@ -31,11 +31,11 @@ That's a values question, and reasonable people will land in different places. S
 
 - **Framework 1 (World Record Multiplier):** A bracket's BQ as a multiple of that bracket's world record. The 2:55:00 standard for men 18-34 is 1.46× Sabastian Sawe's 1:59:30. If every bracket landed at the same multiplier, you'd call the system fair.
 
-- **Framework 2 (Top-3 Records):** Same idea, but anchored to the average of the top three known performances instead of the single WR. World records are outliers by definition — one extraordinary athlete can skew a whole bracket — so this is a robustness check.
+- **Framework 2 (Top-3 Records):** Same idea, but anchored to the average of the top three known performances instead of the single WR. World records are outliers by definition, one extraordinary athlete can skew a whole bracket, so this is a robustness check.
 
 - **Framework 3 (WMA Age-Graded Scoring):** Uses World Masters Athletics' published age factors, which are derived from population-level performance data instead of individual records. Asks: what fraction of your *age-specific biological potential* does Boston demand?
 
-Each framework would give a different answer. The interesting question wasn't which one was "right" — it was whether the three of them agreed about anything.
+Each framework would give a different answer. The interesting question wasn't which one was "right". It was whether the three of them agreed about anything.
 
 ## What I found
 
@@ -44,27 +44,27 @@ The simplest version is: **the BAA has the averages right and the consistency wr
 ![A bar chart showing the BQ standard divided by the world record for each of 22 age-gender brackets. Men's bars sit tightly between 1.43 and 1.53 across the dashed median line at 1.50. Women's bars are all over the place, with W35-39 at 1.62 and W80+ way below at 1.27](./images/fig1-wr-multiplier.png)
 *Framework 1 in one chart. The dashed line is the median (1.50× WR). The blue men's bars hug it. The red women's bars don't.*
 
-That image is most of the article. Notice the blue bars — every men's bracket from 18-34 all the way up to 80+ sits within a thin band between 1.43 and 1.53. Now look at the red bars. W35-39 sits at 1.62. W80+ at 1.27. That's a spread of 0.35, more than three times the men's spread of 0.10.
+That image is most of the article. Notice the blue bars. Every men's bracket from 18-34 all the way up to 80+ sits within a thin band between 1.43 and 1.53. Now look at the red bars. W35-39 sits at 1.62. W80+ at 1.27. That's a spread of 0.35, more than three times the men's spread of 0.10.
 
-A Welch t-test on the gender means returns p = 0.81 — meaning the *averages* for men and women are statistically indistinguishable. The BAA calibrated those correctly. But a Levene test for equal variance returns p = 0.036 — meaning the consistency is statistically different. The men's brackets are tightly aligned with each other. The women's brackets are not.
+A Welch t-test on the gender means returns p = 0.81, meaning the *averages* for men and women are statistically indistinguishable. The BAA calibrated those correctly. But a Levene test for equal variance returns p = 0.036, meaning the consistency is statistically different. The men's brackets are tightly aligned with each other. The women's brackets are not.
 
 This held up under every framework I threw at it. Coefficient of variation tells the same story three different ways:
 
 ![A bar chart with three groups labeled WR, Top-3, and Age-Graded. Inside each group, a short blue bar for men (1.9%, 2.1%, 4.0%) sits next to a tall red bar for women (6.6%, 7.3%, 7.8%)](./images/fig2-cv-comparison.png)
 *Coefficient of variation under each framework. Lower bars = more consistent across brackets. Women's brackets are 3-4× more variable than men's no matter how you measure.*
 
-That ratio — women 3-4× more variable than men — is the thing that surprised me. I'd expected to find either a clean bias in the means (women's standards harder/easier than men's) or no story at all. What I found instead was structural inconsistency hiding underneath a perfectly balanced average.
+That ratio, women 3-4× more variable than men, is the thing that surprised me. I'd expected to find either a clean bias in the means (women's standards harder/easier than men's) or no story at all. What I found instead was structural inconsistency hiding underneath a perfectly balanced average.
 
 ## The outlier you can't ignore
 
 When something is statistically weird, the obvious next question is: is it weird everywhere, or is one data point doing all the work?
 
-So I dropped the W80+ bracket and re-ran everything. The men's CV didn't move (1.9% → 1.9%). The women's CV dropped from 6.6% to 4.5%. **One bracket — W80+ — accounts for roughly a third of the entire women's variance.**
+So I dropped the W80+ bracket and re-ran everything. The men's CV didn't move (1.9% → 1.9%). The women's CV dropped from 6.6% to 4.5%. **One bracket, W80+, accounts for roughly a third of the entire women's variance.**
 
 ![A sensitivity analysis bar chart with four scenarios across the x-axis: Baseline, Drop W80+, Stronger W40-44, Women-only WR. Men's blue bars all show 1.9%. Women's red bars show 6.6%, 4.5%, 6.6%, 6.4%](./images/fig3-sensitivity.png)
-*Sensitivity analysis. The variance gap is robust to alternative reference records — substituting Sinead Diver's W40 marathon or Tigst Assefa's women-only WR barely moves the needle. But removing W80+ entirely cuts women's CV by a third.*
+*Sensitivity analysis. The variance gap is robust to alternative reference records, substituting Sinead Diver's W40 marathon or Tigst Assefa's women-only WR barely moves the needle. But removing W80+ entirely cuts women's CV by a third.*
 
-The W80+ bracket is in a strange position. Its world record (Yoko Nakano, 4:11:45) is an extraordinary performance by an exceptional athlete, the kind of record that gets set once and stands for a decade. The BAA's W80+ standard of 5:20:00 is 1.27× that WR — meaning W80+ women need to come within 27% of a once-in-a-generation performance to qualify. Every other bracket sits between 1.42× and 1.62×. By a mile, this is the strictest bracket in the entire table.
+The W80+ bracket is in a strange position. Its world record (Yoko Nakano, 4:11:45) is an extraordinary performance by an exceptional athlete, the kind of record that gets set once and stands for a decade. The BAA's W80+ standard of 5:20:00 is 1.27× that WR, meaning W80+ women need to come within 27% of a once-in-a-generation performance to qualify. Every other bracket sits between 1.42× and 1.62×. By a mile, this is the strictest bracket in the entire table.
 
 Under the WR framework, the W80+ standard is **57 minutes too strict** compared to where it would land if it were calibrated like every other bracket. Under WMA age-grading, it's **56 minutes too strict**. The two frameworks disagree about almost everything else, but they agree about this. There's no defensible reading of the data where the W80+ standard is in the right place.
 
@@ -85,12 +85,12 @@ There was one unintended consequence worth flagging. By tightening only under-60
 
 I went in expecting to find either a bias or nothing. What I actually found doesn't reduce cleanly to either side of the argument I described at the top of this article.
 
-- **"Boston is unfair to women on average"** — no, it isn't. The means are statistically balanced under every framework I tested.
-- **"Boston is unfair to women in distribution"** — yes, it is. The variance is 3-4× higher across women's brackets, robustly, under all three frameworks.
-- **"Women's qualifying is broken"** — too strong. Most of the inconsistency comes from one bracket (W80+) and a couple of unusually strong or unusually thin reference records in others.
-- **"The BAA should adjust W80+"** — this one is unambiguous. Every framework I tried, every sensitivity check I ran, all point at W80+ as the single most miscalibrated bracket in the table.
+- **"Boston is unfair to women on average".** No, it isn't. The means are statistically balanced under every framework I tested.
+- **"Boston is unfair to women in distribution".** Yes, it is. The variance is 3-4× higher across women's brackets, robustly, under all three frameworks.
+- **"Women's qualifying is broken".** Too strong. Most of the inconsistency comes from one bracket (W80+) and a couple of unusually strong or unusually thin reference records in others.
+- **"The BAA should adjust W80+".** This one is unambiguous. Every framework I tried, every sensitivity check I ran, all point at W80+ as the single most miscalibrated bracket in the table.
 
-That last bullet matters more than the rest. If the BAA wants to do exactly one thing in response to this, it's adjusting W80+ by 30-50 minutes. It would affect a tiny number of runners per year — a few dozen women in their 80s, who already have to perform at near-record level to qualify — but it would bring the standard in line with every other bracket under every framework I tested. It's the cheapest fairness intervention available.
+That last bullet matters more than the rest. If the BAA wants to do exactly one thing in response to this, it's adjusting W80+ by 30-50 minutes. It would affect a tiny number of runners per year. A few dozen women in their 80s, who already have to perform at near-record level to qualify, but it would bring the standard in line with every other bracket under every framework I tested. It's the cheapest fairness intervention available.
 
 ## How the analysis works
 
@@ -98,10 +98,10 @@ The whole thing is a single Python notebook plus four small CSV files. No build 
 
 The four datasets:
 
-- **`bq_standards_2026.csv`** — All 22 BAA qualifying times, sourced directly from baa.org
-- **`world_records.csv`** — Open and masters marathon WRs per bracket, verified against World Athletics and the Wikipedia masters records list
-- **`wma_age_factors.csv`** — WMA 2023 age-grading factors for marathon, single-year ages averaged to bracket midpoints
-- **`field_size_2026.csv`** — 24,362 accepted / 33,249 applied / 4:34 under-BQ cutoff from BAA press releases
+- **`bq_standards_2026.csv`.** All 22 BAA qualifying times, sourced directly from baa.org
+- **`world_records.csv`.** Open and masters marathon WRs per bracket, verified against World Athletics and the Wikipedia masters records list
+- **`wma_age_factors.csv`.** WMA 2023 age-grading factors for marathon, single-year ages averaged to bracket midpoints
+- **`field_size_2026.csv`.** 24,362 accepted / 33,249 applied / 4:34 under-BQ cutoff from BAA press releases
 
 The notebook walks through the same nine sections that mirror the report:
 
@@ -115,7 +115,7 @@ The notebook walks through the same nine sections that mirror the report:
 8. Key findings (text summary)
 9. Limitations and the final summary table
 
-Every figure in the report and on the web article comes from this notebook. Same numbers, same data, same plotting code. I verified it by hashing each embedded image and matching it against the notebook outputs — they're byte-for-byte identical.
+Every figure in the report and on the web article comes from this notebook. Same numbers, same data, same plotting code. I verified it by hashing each embedded image and matching it against the notebook outputs. They're byte-for-byte identical.
 
 ## Three things I'd push back on if I were the BAA
 
@@ -147,8 +147,8 @@ Things I'd build if I cared enough to keep working on it:
 
 The hero photo at the top of this article and any decorative imagery should be sourced from a free-licensed library before publishing:
 
-- **Unsplash** ([unsplash.com](https://unsplash.com)) — free for commercial use, no attribution required. Search "marathon," "running," "race start" for hero candidates.
-- **Pexels** ([pexels.com](https://www.pexels.com)) — same license terms. Good selection of finish-line and crowd shots.
-- **Wikimedia Commons** — for images of specific runners (Sawe, Chepngetich, Nakano), filter by Creative Commons license and check attribution requirements per image.
+- **Unsplash** ([unsplash.com](https://unsplash.com)), free for commercial use, no attribution required. Search "marathon," "running," "race start" for hero candidates.
+- **Pexels** ([pexels.com](https://www.pexels.com)), same license terms. Good selection of finish-line and crowd shots.
+- **Wikimedia Commons.** For images of specific runners (Sawe, Chepngetich, Nakano), filter by Creative Commons license and check attribution requirements per image.
 
 The five data figures in this article (fig1, fig2, fig3, fig4, and the implicit heatmap) are generated by the notebook in this repo and saved to `outputs/figures/` at 400 DPI. They're free to reuse with attribution to this project.

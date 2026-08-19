@@ -4,7 +4,7 @@
 
 *Jeremy Lee · May 2026 · [github.com/lyhjeremy/boston-marathon-qualifying-fairness](https://github.com/lyhjeremy/boston-marathon-qualifying-fairness)*
 
-> 📄 This is the same content as the [PDF report](reports/Boston_BQ_Three_Frameworks_Report.pdf) and [Word doc](reports/Boston_BQ_Three_Frameworks_Report.docx), reformatted for easy reading directly on GitHub. For the interactive analysis, see the [Jupyter notebook](notebooks/boston_bq_fairness_analysis.ipynb).
+> This is the same content as the [PDF report](reports/Boston_BQ_Three_Frameworks_Report.pdf) and [Word doc](reports/Boston_BQ_Three_Frameworks_Report.docx), reformatted for easy reading directly on GitHub. For the interactive analysis, see the [Jupyter notebook](notebooks/boston_bq_fairness_analysis.ipynb).
 
 ---
 
