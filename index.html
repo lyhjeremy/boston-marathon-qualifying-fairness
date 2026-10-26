@@ -3,12 +3,126 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="refresh" content="0; url=web/index.html">
-<link rel="canonical" href="web/index.html">
-<title>Are Boston Marathon Qualifying Times Fair?</title>
+<title>Boston Marathon qualifying times: a bracket-by-bracket fairness check</title>
+<meta name="description" content="All 22 Boston Marathon age-gender qualifying standards scored against world records, an averaged top three and WMA age grading. No mean gender gap; women's standards vary about 3.5 times as much as men's; W80+ is 57 minutes too strict.">
+<meta property="og:title" content="Are Boston's qualifying times fair?">
+<meta property="og:description" content="Fair to women on average, uneven bracket to bracket, and W80+ about an hour too strict.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#ECEBE6">
+<link rel="stylesheet" href="assets/family.css">
+<style>
+  * { box-sizing: border-box; border-radius: 0; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--font-body);
+         border-top: 6px solid var(--signal-2); -webkit-font-smoothing: antialiased; }
+  a { color: var(--signal); }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+  .bar { display: block; background: var(--ink); color: var(--paper); text-align: center; padding: 11px 18px;
+         font: 600 14.5px/1.45 var(--font-body); text-decoration: none; }
+  .bar:hover { color: var(--paper); text-decoration: underline; }
+  .wrap { width: min(100% - 2.4rem, 60rem); margin: 0 auto; }
+  header.mast { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 20px;
+                padding: 26px 0 14px; border-bottom: 3px solid var(--ink); }
+  .race { font: 700 22px/1 var(--font-display); text-transform: uppercase; letter-spacing: .03em; }
+  .meta { font: 400 13px/1.3 var(--font-mono); color: var(--ink-2); letter-spacing: .06em; text-transform: uppercase; }
+  h1 { font: 700 clamp(40px, 6.4vw, 76px)/.95 var(--font-display); text-transform: uppercase; letter-spacing: -.005em;
+       margin: 28px 0 14px; max-width: 22ch; }
+  .dek { font: 400 clamp(17px, 2vw, 19.5px)/1.6 var(--font-head); color: var(--ink-2); max-width: 62ch; margin: 0 0 30px; }
+  .sheet-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 18px;
+                border-top: 1px solid var(--ink); padding: 10px 0 8px; }
+  .sheet-head h2 { font: 600 26px/1.1 var(--font-display); text-transform: uppercase; letter-spacing: .02em; margin: 0; }
+  .sheet-head p { margin: 0; font: 400 12.5px/1.4 var(--font-mono); color: var(--ink-2); }
+  .sheet { overflow-x: auto; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+  table { width: 100%; min-width: 540px; border-collapse: collapse; font: 400 15px/1.3 var(--font-mono); }
+  th { font: 600 15px/1.2 var(--font-display); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2);
+       text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--ink); }
+  th.t, td.t { text-align: right; }
+  td { padding: 6px 10px; border-bottom: 1px dotted var(--edge); font-variant-numeric: tabular-nums; }
+  @media (max-width: 600px) { table { min-width: 0; font-size: 14px; } .sx, .u { display: none; } th, td { padding: 6px 6px; } }
+  tr:last-child td { border-bottom: 0; }
+  td.pl { color: var(--ink-2); width: 3.2em; }
+  td.br { font: 700 18px/1 var(--font-display); letter-spacing: .02em; }
+  td.sx { color: var(--ink-2); font-family: var(--font-body); font-size: 14px; }
+  td.off { font-weight: 400; }
+  td.strict { color: var(--signal); }
+  td.lenient { color: var(--signal-2); }
+  tr.flag td { background: var(--panel); border-top: 2px solid var(--signal); border-bottom: 2px solid var(--signal); font-weight: 400; }
+  tr.flag td.br, tr.flag td.off { color: var(--signal); }
+  .note { font: 400 13.5px/1.5 var(--font-body); color: var(--ink-2); margin: 10px 0 0; max-width: 70ch; }
+  .split { display: grid; grid-template-columns: 1fr; gap: 10px 48px; margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--rule); }
+  @media (min-width: 820px) { .split { grid-template-columns: 1.4fr 1fr; } }
+  .split h2 { font: 600 30px/1.05 var(--font-display); text-transform: uppercase; margin: 0 0 12px; }
+  .split p { font: 400 17px/1.65 var(--font-head); color: var(--ink-2); margin: 0 0 14px; }
+  dl.links { margin: 0; border-top: 1px solid var(--rule); }
+  dl.links div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  dl.links dt { font: 600 12px/1.6 var(--font-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+  dl.links dd { margin: 0; font-size: 15.5px; }
+  footer { margin: 56px 0 0; padding: 20px 0 48px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--ink-2); }
+  footer a { color: var(--ink-2); }
+</style>
 </head>
-<body style="font-family:"Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, serif;background:#EDEDE7;color:#1C1E1B;text-align:center;padding:60px">
-<p>Loading the report… If it doesn't open automatically,
-<a href="web/index.html">click here</a>.</p>
+<body>
+<a class="bar" href="overview/" data-overview-link>Read the full writeup&nbsp;&rarr;</a>
+<div class="wrap">
+  <header class="mast">
+    <span class="race">Boston BQ fairness</span>
+    <span class="meta">2026 standards · 22 brackets · 3 frameworks</span>
+  </header>
+
+  <h1>Fair to women on average. Uneven bracket to bracket.</h1>
+  <p class="dek">I scored every 2026 Boston Marathon qualifying standard against the bracket's world record, an averaged top three and WMA age grading. Men and women are asked for the same mean effort (Welch t-test, p = 0.81). The women's standards are spread about 3.5 times as widely (CV 6.6% against 1.9%), and W80+ is the strictest bracket in the table by a wide margin.</p>
+
+  <div class="sheet-head">
+    <h2>Results sheet: strictest first</h2>
+    <p>World-record framework, from outputs/analysis_results.csv</p>
+  </div>
+  <div class="sheet">
+    <table>
+      <thead><tr><th>Pl.</th><th>Bracket</th><th class="sx">Category</th><th class="t">2026 BQ</th><th class="t">&times; WR</th><th class="t u">Uniform BQ</th><th class="t">Min off</th></tr></thead>
+      <tbody>
+<tr class="flag"><td class="pl">1</td><td class="br">W80+</td><td class="sx">Women</td><td class="t">5:20:00</td><td class="t">1.271</td><td class="t u">6:17:20</td><td class="t off strict">&minus;57.3</td></tr>
+<tr><td class="pl">2</td><td class="br">W70–74</td><td class="sx">Women</td><td class="t">4:50:00</td><td class="t">1.416</td><td class="t u">5:06:58</td><td class="t off strict">&minus;17.0</td></tr>
+<tr><td class="pl">3</td><td class="br">W75–79</td><td class="sx">Women</td><td class="t">5:05:00</td><td class="t">1.429</td><td class="t u">5:19:56</td><td class="t off strict">&minus;14.9</td></tr>
+<tr><td class="pl">4</td><td class="br">M50–54</td><td class="sx">Men</td><td class="t">3:20:00</td><td class="t">1.434</td><td class="t u">3:29:04</td><td class="t off strict">&minus;9.1</td></tr>
+<tr><td class="pl">5</td><td class="br">W55–59</td><td class="sx">Women</td><td class="t">4:00:00</td><td class="t">1.451</td><td class="t u">4:07:59</td><td class="t off strict">&minus;8.0</td></tr>
+<tr><td class="pl">6</td><td class="br">M55–59</td><td class="sx">Men</td><td class="t">3:30:00</td><td class="t">1.457</td><td class="t u">3:35:58</td><td class="t off strict">&minus;6.0</td></tr>
+<tr><td class="pl">7</td><td class="br">M18–34</td><td class="sx">Men</td><td class="t">2:55:00</td><td class="t">1.464</td><td class="t u">2:59:07</td><td class="t off near">&minus;4.1</td></tr>
+<tr><td class="pl">8</td><td class="br">M80+</td><td class="sx">Men</td><td class="t">4:50:00</td><td class="t">1.480</td><td class="t u">4:53:38</td><td class="t off near">&minus;3.6</td></tr>
+<tr><td class="pl">9</td><td class="br">M75–79</td><td class="sx">Men</td><td class="t">4:35:00</td><td class="t">1.487</td><td class="t u">4:37:07</td><td class="t off near">&minus;2.1</td></tr>
+<tr><td class="pl">10</td><td class="br">M70–74</td><td class="sx">Men</td><td class="t">4:20:00</td><td class="t">1.492</td><td class="t u">4:21:17</td><td class="t off near">&minus;1.3</td></tr>
+<tr><td class="pl">11</td><td class="br">M40–44</td><td class="sx">Men</td><td class="t">3:05:00</td><td class="t">1.489</td><td class="t u">3:06:14</td><td class="t off near">&minus;1.2</td></tr>
+<tr><td class="pl">12</td><td class="br">M35–39</td><td class="sx">Men</td><td class="t">3:00:00</td><td class="t">1.506</td><td class="t u">2:59:07</td><td class="t off near">+0.9</td></tr>
+<tr><td class="pl">13</td><td class="br">M45–49</td><td class="sx">Men</td><td class="t">3:15:00</td><td class="t">1.509</td><td class="t u">3:13:39</td><td class="t off near">+1.3</td></tr>
+<tr><td class="pl">14</td><td class="br">W40–44</td><td class="sx">Women</td><td class="t">3:35:00</td><td class="t">1.509</td><td class="t u">3:33:31</td><td class="t off near">+1.5</td></tr>
+<tr><td class="pl">15</td><td class="br">M65–69</td><td class="sx">Men</td><td class="t">4:05:00</td><td class="t">1.513</td><td class="t u">4:02:44</td><td class="t off near">+2.3</td></tr>
+<tr><td class="pl">16</td><td class="br">W50–54</td><td class="sx">Women</td><td class="t">3:50:00</td><td class="t">1.522</td><td class="t u">3:46:27</td><td class="t off near">+3.5</td></tr>
+<tr><td class="pl">17</td><td class="br">M60–64</td><td class="sx">Men</td><td class="t">3:50:00</td><td class="t">1.533</td><td class="t u">3:44:53</td><td class="t off lenient">+5.1</td></tr>
+<tr><td class="pl">18</td><td class="br">W60–64</td><td class="sx">Women</td><td class="t">4:20:00</td><td class="t">1.532</td><td class="t u">4:14:23</td><td class="t off lenient">+5.6</td></tr>
+<tr><td class="pl">19</td><td class="br">W65–69</td><td class="sx">Women</td><td class="t">4:35:00</td><td class="t">1.535</td><td class="t u">4:28:27</td><td class="t off lenient">+6.5</td></tr>
+<tr><td class="pl">20</td><td class="br">W18–34</td><td class="sx">Women</td><td class="t">3:25:00</td><td class="t">1.578</td><td class="t u">3:14:45</td><td class="t off lenient">+10.2</td></tr>
+<tr><td class="pl">21</td><td class="br">W45–49</td><td class="sx">Women</td><td class="t">3:45:00</td><td class="t">1.589</td><td class="t u">3:32:11</td><td class="t off lenient">+12.8</td></tr>
+<tr><td class="pl">22</td><td class="br">W35–39</td><td class="sx">Women</td><td class="t">3:30:00</td><td class="t">1.616</td><td class="t u">3:14:45</td><td class="t off lenient">+15.2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">&times; WR is the standard divided by the bracket's world record. Uniform BQ applies the median multiplier (1.50&times;) to every bracket. Min off is the current standard minus the uniform one: negative means the current standard is stricter. Under age grading W80+ comes out 56 minutes strict.</p>
+
+  <section class="split">
+    <div>
+      <h2>How it was tested</h2>
+      <p>The BAA has never published how it sets these times, so fairness has to be measured against a reference. Each framework asks whether every bracket sits the same distance from its reference. A Welch t-test compares the gender means; Levene's test and the coefficient of variation compare the spread (Levene p = 0.036).</p>
+      <p>The variance gap holds under all three frameworks and under alternative reference records. Dropping W80+ alone cuts the women's CV from 6.6% to 4.5%. The 2026 cut of five minutes for everyone under 60 left the pattern in place and made the step at age 60 grow from 15 to 20 minutes.</p>
+    </div>
+    <dl class="links">
+      <div><dt>Writeup</dt><dd><a href="overview/">The full story, with charts</a></dd></div>
+      <div><dt>Report</dt><dd><a href="web/index.html">Long-form HTML report</a></dd></div>
+      <div><dt>PDF / Word</dt><dd><a href="reports/Are_Boston_Marathon_Qualifying_Times_Fair_Report.pdf">PDF</a> · <a href="reports/Are_Boston_Marathon_Qualifying_Times_Fair_Report.docx">DOCX</a></dd></div>
+      <div><dt>Notebook</dt><dd><a href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness/blob/main/notebooks/boston_bq_fairness_analysis.ipynb">Jupyter notebook</a></dd></div>
+      <div><dt>Code</dt><dd><a href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">github.com/lyhjeremy/boston-marathon-qualifying-fairness</a></dd></div>
+    </dl>
+  </section>
+
+  <footer>Python: pandas, SciPy, matplotlib, seaborn. Data current as of May 2026. MIT © 2026 Jeremy Lee.</footer>
+</div>
 </body>
 </html>

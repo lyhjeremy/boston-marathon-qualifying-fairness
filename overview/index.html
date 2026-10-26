@@ -3,55 +3,57 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Are Boston's qualifying times fair?: the popular criticism doesn't survive testing</title>
-<meta name="description" content="Three independent frameworks across 22 age-gender brackets. No mean-level gender bias (p = 0.81), but women's brackets are 3-4x more variable than men's, and W80+ is 57 minutes too strict." />
-<meta name="theme-color" content="#EDEDE7" />
+<title>Boston qualifying times are fair to women on average and uneven by bracket</title>
+<meta name="description" content="Three fairness frameworks across all 22 Boston Marathon age-gender brackets. No mean gender gap (p = 0.81), women's standards vary about 3.5 times as much as men's, and W80+ is 57 minutes too strict." />
+<meta name="theme-color" content="#ECEBE6" />
 <meta property="og:title" content="Are Boston's qualifying times fair?" />
-<meta property="og:description" content="The claim is that Boston is unfair to women. It isn't, on the mean. The real problem is variance, and one bracket." />
+<meta property="og:description" content="On the mean, yes. Bracket to bracket the women's standards vary far more than the men's, and W80+ is about an hour too strict." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/overview/" />
+<link href="" rel="stylesheet" />
 <style>
-@font-face{font-family:"Source Serif 4";src:url("../fonts/SourceSerif4-400.woff2")format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Source Serif 4";src:url("../fonts/SourceSerif4-600.woff2")format("woff2");font-weight:600;font-display:swap}
-@font-face{font-family:"IBM Plex Sans";src:url("../fonts/IBMPlexSans-400.woff2")format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"IBM Plex Sans";src:url("../fonts/IBMPlexSans-600.woff2")format("woff2");font-weight:600;font-display:swap}
-@font-face{font-family:"IBM Plex Mono";src:url("../fonts/IBMPlexMono-400.woff2")format("woff2");font-weight:400;font-display:swap}
-
   :root {
-    --paper: #EDEDE7;
-    --card: #F5F5F0;
-    --plate: #F5F5F0;
-    --ink: #1C1E1B;
-    --ink2: #3d3d55;
-    --muted: #52564E;
-    --rule: #C6C7BF;
-    --accent: #2C5852;
-    --accent2: #8C3A1E;
-    --link: #8C3A1E;
-    --serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
-    --sans: 'Source Sans 3', -apple-system, system-ui, sans-serif;
-    --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
-    --shadow: 0 1px 2px rgba(26,26,46,.05), 0 10px 34px rgba(26,26,46,.07);
+    --paper: #ECEBE6;
+    --card: #F4F3EF;
+    --plate: #F4F3EF;
+    --ink: #1A1C1E;
+    --ink2: #4E535A;
+    --muted: #4E535A;
+    --rule: #C5C6C4;
+    --accent: #94462A;
+    --accent2: #1F4A72;
+    --link: #94462A;
+    --serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
+    --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --edge: #73777C;
     --spine:  92px;
     --col:    min(100% - 2.6rem, 62rem);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #14141f;
-      --card: #1c1c2a;
-      --plate: #f7f4ec;
-      --ink: #F2EFE6;
-      --ink2: #C9C4B6;
-      --muted: #918B7D;
-      --rule: #33313f;
-      --accent: #E0899A;
-      --accent2: #22D3EE;
-      --link: #22D3EE;
-      --shadow: 0 1px 2px rgba(0,0,0,.32), 0 10px 34px rgba(0,0,0,.4);
+      --paper: #17191C;
+      --card: #202327;
+      --plate: #202327;
+      --ink: #E4E5E3;
+      --ink2: #A3A8AE;
+      --muted: #A3A8AE;
+      --rule: #383C41;
+      --accent: #D9906C;
+      --accent2: #7FA8D3;
+      --link: #D9906C;
+      --edge: #6B7076;
     }
   }
 
-  * { box-sizing: border-box; }
+  @font-face{font-family:"Source Serif 4";src:url("../fonts/SourceSerif4-400.woff2")format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Source Serif 4";src:url("../fonts/SourceSerif4-600.woff2")format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:"IBM Plex Sans";src:url("../fonts/IBMPlexSans-400.woff2")format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"IBM Plex Sans";src:url("../fonts/IBMPlexSans-600.woff2")format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:"IBM Plex Mono";src:url("../fonts/IBMPlexMono-400.woff2")format("woff2");font-weight:400;font-display:swap}
+
+  * { box-sizing: border-box; border-radius: 0; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0; background: var(--paper); color: var(--ink);
@@ -210,55 +212,90 @@
     html { scroll-behavior: auto; }
     .btn { }
   }
+  @font-face{font-family:"Barlow Condensed";src:url("../fonts/BarlowCondensed-600.woff2")format("woff2");font-weight:600;font-style:normal;font-display:swap}
+  @font-face{font-family:"Barlow Condensed";src:url("../fonts/BarlowCondensed-700.woff2")format("woff2");font-weight:700;font-style:normal;font-display:swap}
 
+  .btn:hover { transform: none; background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  .pull { border: 1px solid var(--edge); border-left: 1px solid var(--edge); background: transparent; }
+  .term { background: var(--card); color: var(--ink); border: 1px solid var(--rule); }
+  .term .c { color: var(--muted); } .term .g { color: var(--accent2); } .term .y { color: var(--accent); }
+  .logo, .hero h1, h2, .claim .n, .bignum { font-family: var(--display); }
+
+  /* Road: a race-day bib and the painted course line. Condensed caps, split-table numbers. */
+  body { border-top: 6px solid var(--accent2); }
+  .hero h1 { font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; line-height: .95;
+             font-size: clamp(46px, 8.4vw, 104px); max-width: 15ch; }
+  h2 { font-weight: 600; letter-spacing: -.005em; font-size: clamp(30px, 4.2vw, 44px); line-height: 1.02; }
+  .kicker { font-family: var(--mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  .claim .n { font-weight: 700; font-size: 56px; letter-spacing: 0; }
+  .bignum { font-weight: 700; letter-spacing: -.01em; }
+  .route::before { width: 0; border-left: 3px dashed var(--accent2); background: none; }
+  .stop::before { border-radius: 0; width: 18px; height: 18px; left: calc(var(--spine) / 2 - 7.5px);
+                  border: 3px solid var(--accent2); }
+  .stop .eyebrow { color: var(--accent2); }
+
+
+  .frames { list-style: none; padding: 0; margin: 26px 0 0; border-top: 1px solid var(--rule); max-width: 60ch; }
+  .frames li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule);
+               font-family: var(--sans); font-size: 16px; line-height: 1.55; color: var(--ink2); }
+  .frames .fn { font: 700 34px/1 var(--display); color: var(--accent2); }
+  .stepfig .plate { overflow-x: auto; }
+  .steps { display: block; width: 100%; min-width: 560px; height: auto; font-family: var(--sans); }
+  .steps .g { stroke: var(--rule); stroke-width: 1; }
+  .steps .ax { fill: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .steps .cliff { fill: color-mix(in srgb, var(--accent) 14%, transparent); }
+  .steps .sm { fill: none; stroke: var(--accent2); stroke-width: 3.5; }
+  .steps .sw { fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-dasharray: 9 5; }
+  .steps .lab { font: 700 17px var(--display); text-transform: uppercase; letter-spacing: .04em; }
+  .steps .lm { fill: var(--accent2); } .steps .lw { fill: var(--accent); }
+  .steps .note { fill: var(--accent); font: 600 15px var(--display); text-transform: uppercase; letter-spacing: .04em; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="masthead">
-    <div class="logo"><span class="dot" aria-hidden="true"></span>Boston BQ Fairness</div>
+    <div class="logo"><span class="dot" aria-hidden="true"></span>Boston BQ fairness</div>
     <div class="tagline">22 brackets, three frameworks</div>
   </header>
 
   <section class="hero">
-    <p class="kicker">The usual complaint is that Boston is unfair to women.</p>
-    <h1>It isn't. The real problem is a different one.</h1>
+    <p class="kicker">Boston Marathon qualifying times, 2026</p>
+    <h1>Fair to women on average. Badly uneven bracket to bracket.</h1>
 
     <p class="hero-sub">
-      The BAA publishes qualifying times for <strong>22 age-gender brackets</strong>
-      and has never explained how it sets them. Tested against three independent
-      fairness frameworks, the gender-bias claim <strong>does not survive</strong>:
-      a Welch t-test on the means returns <strong>p = 0.81</strong>. What does show
-      up is <strong>variance</strong>, women's brackets are three to four times
-      less consistent than men's, and one bracket, <strong>W80+</strong>, that is
-      about <strong>57 minutes too strict</strong> under every framework tried.
+      The BAA sets a qualifying time for each of 22 age-gender brackets and has
+      never published how. I scored every standard against three references: the
+      bracket's world record, an averaged top three, and WMA age grading. Men and
+      women are asked for the same average effort (Welch t-test, p = 0.81). The
+      women's standards vary far more from bracket to bracket than the men's, and
+      W80+ is about 57 minutes stricter than the rest of the table.
     </p>
 
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness/blob/main/writeup.md">Read the full writeup</a>
-      <a class="textlink" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">or the code and data</a>
+      <a class="btn btn-primary" href="../web/index.html">Read the full report</a>
+      <a class="textlink" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">Code and data on GitHub</a>
     </div>
 
     <div class="claims">
       <div class="claim">
         <div class="n">p = 0.81</div>
-        <p>Welch t-test on gender means under the world-record framework. There is
-           no mean-level bias to find.</p>
+        <p>Welch t-test on the men's and women's mean world-record multiplier.
+           Under age grading it is p = 0.68. No mean-level gap either way.</p>
       </div>
       <div class="claim">
-        <div class="n">1.9% vs 6.6%</div>
-        <p>coefficient of variation, men against women. The inconsistency is the
-           finding, not the average.</p>
+        <div class="n">1.9% / 6.6%</div>
+        <p>Coefficient of variation of the multiplier across brackets, men and
+           women. Levene's test for equal variance: p = 0.036.</p>
       </div>
       <div class="claim">
         <div class="n">57 min</div>
-        <p>how much stricter W80+ is than a uniform multiplier would imply.
-           Current standard 5:20:00; uniform would be 6:17:20.</p>
+        <p>How much faster the W80+ standard (5:20:00) is than a uniform
+           multiplier would set it (6:17:20). Age grading says 56 minutes.</p>
       </div>
       <div class="claim">
-        <div class="n">1.50×</div>
-        <p>the median standard across all brackets. A BQ is typically 50% slower
-           than that bracket's world record.</p>
+        <div class="n">1.50&times;</div>
+        <p>Median standard across all 22 brackets: a BQ is typically half again
+           as slow as that bracket's world record.</p>
       </div>
     </div>
   </section>
@@ -268,246 +305,259 @@
 <div class="route">
 
   <section class="stop">
-    <p class="eyebrow">Start · the question</p>
-    <h2>Nobody outside the BAA knows how these numbers are set</h2>
+    <p class="eyebrow">Start: the question</p>
+    <h2>Nobody outside the BAA knows how the standards are set</h2>
     <p>
-      Boston is one of the few big marathons you cannot simply enter. It publishes
-      a qualifying time for each of 11 age groups across two genders, those times
-      decide who gets to run, and the methodology behind them has never been made
-      public.
+      Boston is one of only two World Marathon Majors that you enter by running a
+      qualifying time. The BAA publishes a standard for 11 age groups in each of
+      two genders. Its announcements cite "careful analysis of results data" and
+      stop there.
     </p>
     <p>
-      That makes "are they fair?" answerable only by proxy: pick a reference for
-      how hard each bracket <em>should</em> be, and check whether the standards
-      demand the same proportional effort of everyone. Since any single reference
-      is arguable, this uses three.
+      So "are they fair?" can only be answered by proxy. Pick a reference for how
+      hard each bracket should be, then check whether every standard sits at the
+      same distance from it. Any single reference is arguable, so I used three.
     </p>
-    <div class="grid">
-      <div class="cell">
-        <h3>1 · World-record multiplier</h3>
-        <p>The BQ time as a multiple of that bracket's world record. Simple and
-           transparent, and sensitive to a single freak record.</p>
-      </div>
-      <div class="cell">
-        <h3>2 · Top-three records</h3>
-        <p>The same idea with an averaged top-three reference, to test whether one
-           outlier performance is driving the result.</p>
-      </div>
-      <div class="cell">
-        <h3>3 · WMA age grading</h3>
-        <p>Difficulty relative to age-specific biological potential, using the
-           official WMA 2023 factors. A different notion of "should" entirely.</p>
-      </div>
-    </div>
+    <ol class="frames">
+      <li><span class="fn">1</span><div><strong>World-record multiplier.</strong> The BQ time divided by the bracket's world record. Transparent, and exposed to one exceptional record.</div></li>
+      <li><span class="fn">2</span><div><strong>Top-three records.</strong> The same ratio against an averaged top three, to see whether a single performance drives the result. The second and third marks are estimated, not looked up.</div></li>
+      <li><span class="fn">3</span><div><strong>WMA age grading.</strong> The share of age-specific potential each standard demands, from the WMA 2023 factor tables.</div></li>
+    </ol>
   </section>
 
   <section class="stop stop--key">
-    <p class="eyebrow">↓ the first result</p>
+    <p class="eyebrow">First result</p>
     <h2>The gender-bias claim does not hold</h2>
 
     <div class="bignum">p = 0.81</div>
-    <p class="bignum-note">Welch t-test on the gender means, world-record framework. t = −0.25.</p>
+    <p class="bignum-note">Welch t-test on the gender means, world-record framework. t = &minus;0.25.</p>
 
     <p>
-      Under age grading the answer is the same: men's brackets average
-      <strong>68.3%</strong> of age-graded potential, women's
-      <strong>69.0%</strong>, <strong>t = 0.42, p = 0.68</strong>. Whichever
-      reference you pick, the two genders are asked for the same average effort.
-    </p>
-    <p>
-      This is the sort of result worth stating plainly even though it is the
-      boring one. The widely repeated criticism is about the mean, and the mean is
-      fine.
+      Age grading gives the same answer. The men's standards ask for an average of
+      69.1% of age-graded potential and the women's for 68.3% (t = 0.42,
+      p = 0.68). The usual forum complaint is about the mean, and on the mean the
+      two genders are treated alike.
     </p>
     <figure>
       <div class="plate">
         <img width="5709" height="2910" src="../outputs/figures/fig1_wr_multiplier.png" fetchpriority="high"
-          alt="Bar chart of the world-record multiplier for each of the 22 age-gender brackets, with men's bars clustered tightly around 1.5 and women's bars spread more widely from about 1.27 to 1.62." />
+          alt="Bar chart of the world-record multiplier for each of the 22 age-gender brackets. Men's bars sit between 1.43 and 1.53; women's run from 1.27 at W80+ to 1.62 at W35-39." />
       </div>
       <figcaption>
-        Every bracket as a multiple of its own world record. Look at the spread
-        rather than the height.
+        Each bracket's standard as a multiple of its own world record. The dashed
+        line is the median, 1.50&times;.
       </figcaption>
     </figure>
   </section>
 
   <section class="stop stop--warn">
-    <p class="eyebrow">↓ the result that does hold</p>
+    <p class="eyebrow">The result that holds</p>
     <h2>Men's standards are consistent. Women's are not.</h2>
     <p>
-      Men's brackets cluster inside a range of <strong>1.43× to 1.53×</strong>, a
-      coefficient of variation of <strong>1.9%</strong>. Women's run from
-      <strong>1.27× to 1.62×</strong>, a CV of <strong>6.6%</strong>. Levene's test
-      for equal variance returns <strong>W = 5.04, p = 0.036</strong>.
+      Every men's bracket falls between 1.43&times; and 1.53&times; its world
+      record, a coefficient of variation of 1.9%. The women's run from 1.27&times;
+      to 1.62&times;, a CV of 6.6%. Levene's test for equal variance gives
+      W = 5.04, p = 0.036.
     </p>
     <p>
-      That 0.35× gap is the core inconsistency. <strong>W35–39 at 1.62×</strong> is
-      the most lenient bracket in the whole table; <strong>W80+ at 1.27×</strong>
-      is the strictest. Two women of different ages, both meeting their standard,
-      are not being asked for remotely the same thing.
+      W35&ndash;39 at 1.62&times; is the most lenient bracket in the table and
+      W80+ at 1.27&times; the strictest. Two women who both meet their standard
+      can be running at very different fractions of what their age group has
+      shown is possible.
     </p>
     <p>
-      Averaging the top three performances instead of using a single record barely
-      moves it. Women's CV goes from 6.6% to <strong>7.3%</strong>. So this is not
-      one freak record distorting the picture. The structural gaps in older women's
-      brackets survive a more conservative reference.
+      The gap survives a change of reference. With an averaged top three, the CVs
+      are 2.1% and 7.3%; with age grading, 4.0% and 7.8%. The ratio is about
+      3.5 to 1 under the two record-based frameworks and about 2 to 1 under age
+      grading.
     </p>
     <div class="panels">
       <figure>
         <div class="plate">
           <img width="4109" height="2511" src="../outputs/figures/fig3_cv_comparison.png" loading="lazy"
-            alt="Comparison of coefficient of variation between men's and women's brackets across the three frameworks, with women's variation consistently three to four times higher." />
+            alt="Grouped bars of coefficient of variation by framework. Men: 1.9, 2.1 and 4.0 percent. Women: 6.6, 7.3 and 7.8 percent." />
         </div>
-        <figcaption><strong>Variance</strong>: the gap holds in all three frameworks.</figcaption>
+        <figcaption>Coefficient of variation under each framework.</figcaption>
       </figure>
       <figure>
         <div class="plate">
           <img width="7308" height="2620" src="../outputs/figures/fig2_framework_comparison.png" loading="lazy"
-            alt="Side-by-side comparison of bracket difficulty under the world-record, top-three and age-graded frameworks, showing broadly the same structural pattern in each." />
+            alt="Bracket difficulty under the world-record, top-three and age-graded frameworks side by side, with the same broad pattern in each." />
         </div>
-        <figcaption><strong>Three frameworks</strong>: same structure, different scales.</figcaption>
+        <figcaption>The three frameworks on one chart: different scales, similar shape.</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="stop stop--key">
-    <p class="eyebrow">↓ the one indefensible number</p>
-    <h2>W80+ is too hard, whichever way you measure it</h2>
+    <p class="eyebrow">The outlier</p>
+    <h2>W80+ is too strict under every framework</h2>
     <p>
-      The current W80+ standard is <strong>5:20:00</strong>. A uniform multiplier
-      across all brackets would put it at <strong>6:17:20</strong>. A gap of
-      <strong>57 minutes</strong>. Under age grading the gap is
-      <strong>56 minutes</strong>. Two frameworks built on completely different
-      premises land within a minute of each other.
+      The W80+ standard is 5:20:00. Applying the median multiplier would put it at
+      6:17:20, 57 minutes slower. Age grading puts the gap at 56 minutes. The two
+      frameworks start from different premises and land a minute apart.
     </p>
     <p>
-      The cause is visible once you look at the reference: Yoko Nakano's
-      <strong>4:11:45</strong> is an extraordinary record, and pinning a standard
-      to a fixed proportion of it asks eighty-year-old women to come within 27% of
-      one of the great age-group performances in the sport.
-    </p>
-    <p>
-      This is the single most defensible criticism in the whole analysis. It does
-      not require agreeing with any particular notion of fairness. Every
-      framework flags the same bracket.
+      The reference explains it. Yoko Nakano's 4:11:45, run in Tokyo at 81, is an
+      exceptional record, and the current standard asks women over 80 to finish
+      within 27% of it. Every other bracket sits between 1.42&times; and
+      1.62&times; its record.
     </p>
     <div class="panels">
       <figure>
         <div class="plate">
           <img width="8032" height="2617" src="../outputs/figures/fig5_heatmap.png" loading="lazy"
-            alt="Deviation heatmap across brackets and frameworks, with red cells marking brackets harder than average. The W80+ row is red across every framework." />
+            alt="Deviation heatmap of brackets against frameworks. Red cells mark brackets harder than average; the W80+ row is red in all three columns." />
         </div>
-        <figcaption><strong>The heatmap</strong>: W80+ is red in every column.</figcaption>
+        <figcaption>Z-score deviation by bracket. W80+ is red in every column.</figcaption>
       </figure>
       <figure>
         <div class="plate">
           <img width="7308" height="3083" src="../outputs/figures/fig4_fair_vs_actual.png" loading="lazy"
-            alt="Current qualifying standards plotted against the standard each framework would suggest, with W80+ showing the largest divergence." />
+            alt="Minutes between each current standard and the uniform standard under each framework. The W80+ bar falls below minus 50 minutes in each panel." />
         </div>
-        <figcaption><strong>Actual against uniform</strong>: where the gaps are.</figcaption>
+        <figcaption>Current standard minus uniform standard, in minutes. Below zero is stricter.</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="stop">
-    <p class="eyebrow">↓ did 2026 help</p>
-    <h2>The tightening answered demand, not fairness</h2>
+    <p class="eyebrow">The 2026 tightening</p>
+    <h2>Five minutes off every standard under 60</h2>
     <p>
-      2026 brought the largest tightening since 1990, five minutes across the
-      board for everyone under 60, in response to <strong>33,249 applications for
-      roughly 24,000 spots</strong>. It is reasonable to ask whether that also
-      improved consistency.
+      For 2026 the BAA cut five minutes from every standard below age 60, its
+      largest tightening since 1990, after 33,249 applications for about 24,000
+      qualifier places. The 60+ standards did not move.
     </p>
     <p>
-      It did not. The change lowered every under-60 multiplier by roughly the same
-      proportion and left the 60+ brackets untouched, so the relative structure is
-      unchanged. Women's CV was about <strong>6.8%</strong> under the 2020–2025
-      standards and <strong>6.6%</strong> under 2026. Effectively identical.
+      A flat cut leaves the shape of the table in place. Against the same world
+      records, the women's CV was 7.3% under the 2020&ndash;2025 standards and is
+      6.6% now; the men's moved from 1.8% to 1.9%. The change answered demand. It
+      was too uniform to fix the spread.
     </p>
+    <p>
+      It did make one step steeper. The jump from 55&ndash;59 to 60&ndash;64 was
+      15 minutes and is now 20, for men and women alike, so a qualifier gains 20
+      minutes of allowance on their 60th birthday.
+    </p>
+    <figure class="stepfig">
+      <div class="plate">
+<svg class="steps" viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="steps-t">
+<title id="steps-t">2026 Boston qualifying standards by age bracket. Men run from 2:55 to 4:50 and women from 3:25 to 5:20, each in steps of 5 to 20 minutes. Both lines jump 20 minutes between 55-59 and 60-64.</title>
+<line class="g" x1="58" x2="624" y1="259.8" y2="259.8"/><text class="ax" x="50" y="263.8" text-anchor="end">3:00</text>
+<line class="g" x1="58" x2="624" y1="211.5" y2="211.5"/><text class="ax" x="50" y="215.5" text-anchor="end">3:30</text>
+<line class="g" x1="58" x2="624" y1="163.1" y2="163.1"/><text class="ax" x="50" y="167.1" text-anchor="end">4:00</text>
+<line class="g" x1="58" x2="624" y1="114.7" y2="114.7"/><text class="ax" x="50" y="118.7" text-anchor="end">4:30</text>
+<line class="g" x1="58" x2="624" y1="66.4" y2="66.4"/><text class="ax" x="50" y="70.4" text-anchor="end">5:00</text>
+<line class="g" x1="58" x2="624" y1="18.0" y2="18.0"/><text class="ax" x="50" y="22.0" text-anchor="end">5:30</text>
+<text class="ax" x="83.7" y="304" text-anchor="middle">18–34</text>
+<text class="ax" x="135.2" y="304" text-anchor="middle">35–39</text>
+<text class="ax" x="186.6" y="304" text-anchor="middle">40–44</text>
+<text class="ax" x="238.1" y="304" text-anchor="middle">45–49</text>
+<text class="ax" x="289.5" y="304" text-anchor="middle">50–54</text>
+<text class="ax" x="341.0" y="304" text-anchor="middle">55–59</text>
+<text class="ax" x="392.5" y="304" text-anchor="middle">60–64</text>
+<text class="ax" x="443.9" y="304" text-anchor="middle">65–69</text>
+<text class="ax" x="495.4" y="304" text-anchor="middle">70–74</text>
+<text class="ax" x="546.8" y="304" text-anchor="middle">75–79</text>
+<text class="ax" x="598.3" y="304" text-anchor="middle">80+</text>
+<text class="ax" x="341.0" y="324" text-anchor="middle">Age bracket</text>
+<rect class="cliff" x="341.0" y="18" width="51.5" height="266"/>
+<path class="sw" d="M58.0 219.5 L109.5 219.5 L109.5 211.5 L160.9 211.5 L160.9 203.4 L212.4 203.4 L212.4 187.3 L263.8 187.3 L263.8 179.2 L315.3 179.2 L315.3 163.1 L366.7 163.1 L366.7 130.8 L418.2 130.8 L418.2 106.7 L469.6 106.7 L469.6 82.5 L521.1 82.5 L521.1 58.3 L572.5 58.3 L572.5 34.1 L624.0 34.1"/>
+<path class="sm" d="M58.0 267.9 L109.5 267.9 L109.5 259.8 L160.9 259.8 L160.9 251.8 L212.4 251.8 L212.4 235.6 L263.8 235.6 L263.8 227.6 L315.3 227.6 L315.3 211.5 L366.7 211.5 L366.7 179.2 L418.2 179.2 L418.2 155.0 L469.6 155.0 L469.6 130.8 L521.1 130.8 L521.1 106.7 L572.5 106.7 L572.5 82.5 L624.0 82.5"/>
+<text class="lab lw" x="64" y="210.5">Women</text>
+<text class="lab lm" x="64" y="287.9">Men</text>
+<text class="note" x="370.7" y="32">+20 min at 60</text>
+</svg>
+      </div>
+      <figcaption>
+        The 2026 standards drawn as steps, one per bracket, from
+        <code>data/bq_standards_2026.csv</code>. The shaded band is the
+        55&ndash;59 to 60&ndash;64 step, 20 minutes in both lines since the 2026
+        cut (15 before it).
+      </figcaption>
+    </figure>
     <figure>
       <div class="plate">
         <img width="6105" height="2620" src="../outputs/figures/fig7_historical.png" loading="lazy"
-          alt="Comparison of 2020-2025 and 2026 qualifying standards as world-record multipliers, showing a uniform downward shift within each gender and no change in relative bracket structure." />
+          alt="Bars of 2020-2025 and 2026 multipliers for each bracket, men and women. Every under-60 bar drops by a similar amount; the 60+ bars are unchanged." />
       </div>
-      <figcaption>2020–2025 against 2026. Everything moved down together.</figcaption>
+      <figcaption>2020&ndash;2025 (light) against 2026 (dark), as world-record multipliers.</figcaption>
     </figure>
   </section>
 
   <section class="stop">
-    <p class="eyebrow">↓ is it an artefact</p>
-    <h2>Testing whether the variance gap is real</h2>
+    <p class="eyebrow">Stress test</p>
+    <h2>Is the variance gap an artifact of the records chosen?</h2>
     <p>
-      A result this dependent on reference records deserves stress-testing, so the
-      analysis re-runs under alternative anchors: dropping W80+ entirely, and
-      swapping the women's open record for Tigst Assefa's women-only
-      <strong>2:15:41</strong> instead of the mixed-race mark.
+      I re-ran the world-record framework three ways: without W80+, with Sinead
+      Diver's 2:21:34 as an alternative W40&ndash;44 reference, and with Tigst
+      Assefa's women-only record of 2:15:41 in place of the mixed-race mark for
+      W18&ndash;34.
     </p>
     <p>
-      Men's CV stays at <strong>1.9%</strong> in every scenario, which confirms
-      there is no comparable outlier hiding in the men's data. Women's CV drops to
-      <strong>4.5%</strong> only when W80+ is removed altogether; alternative record
-      choices move it by less than <strong>0.3 percentage points</strong>. The gap
-      is genuine.
+      The men's CV stays at 1.9% in every case. The women's is 6.6% with Diver
+      and 6.4% with Assefa, and drops to 4.5% only when W80+ is removed. That one
+      bracket accounts for about a third of the women's spread, and even without
+      it the women's CV is more than twice the men's.
     </p>
     <figure>
       <div class="plate">
         <img width="4505" height="2510" src="../outputs/figures/fig8_sensitivity.png" loading="lazy"
-          alt="Sensitivity analysis across alternative scenarios, with men's coefficient of variation flat at 1.9 percent and women's falling only when W80+ is excluded." />
+          alt="Coefficient of variation under four scenarios. Men stay at 1.9 percent throughout. Women: 6.6 baseline, 4.5 without W80+, 6.6 with Diver, 6.4 with Assefa." />
       </div>
-      <figcaption>Four scenarios. Only removing W80+ changes the picture.</figcaption>
+      <figcaption>Four scenarios. Only dropping W80+ moves the women's CV much.</figcaption>
     </figure>
     <figure>
       <div class="plate">
         <img width="5711" height="3310" src="../outputs/figures/fig6_alternative_bq.png" loading="lazy"
-          alt="Alternative qualifying-time tables generated under each of the three frameworks, shown alongside the current standards." />
-        </div>
-      <figcaption>What each framework would set the standards to, if applied uniformly.</figcaption>
+          alt="Alternative qualifying-time tables under each of the three frameworks, shown beside the current standards." />
+      </div>
+      <figcaption>What each framework would set the standards to if applied uniformly.</figcaption>
     </figure>
   </section>
 
   <section class="stop stop--warn">
-    <p class="eyebrow">↓ what this cannot tell you</p>
-    <h2>Eleven brackets per gender is a small sample</h2>
+    <p class="eyebrow">Limitations</p>
+    <h2>What this does not show</h2>
     <p>
-      With <strong>n = 11</strong> per gender the formal tests are underpowered.
-      Levene's test at <strong>p = 0.036</strong> clears the conventional threshold
-      and should still be read cautiously, and the same caution applies to reading
-      too much into a p = 0.81 as evidence of <em>no</em> difference rather than
-      simply no detected one.
+      There are 11 brackets per gender, so the tests are underpowered. Levene's
+      p = 0.036 clears 0.05 by a small margin, and it was run on the
+      world-record framework only. A p of 0.81 means no difference was detected,
+      which is weaker than evidence of no difference.
     </p>
     <p>
-      The top-three framework is explicitly an approximation. Second and third
-      performances are <strong>estimated</strong> at 3% and 6% slower than the
-      record for well-contested brackets, and 5% and 10% for thin ones, rather than
-      looked up. It is a robustness check, not a measurement, and the writeup
-      flags it throughout.
+      The top-three framework is an approximation. The second and third marks are
+      set at 3% and 6% slower than the record for brackets with depth, and 5% and
+      10% for 70+, rather than taken from results.
     </p>
     <p>
-      Non-binary athletes, 110 accepted in 2026, are excluded, because the BAA
-      itself states it has insufficient data to set appropriate standards for the
-      category. That is a real gap in the analysis rather than a judgement about it.
+      Below 40 there is no separate masters record, so 18&ndash;34 and
+      35&ndash;39 share the open record. That makes 35&ndash;39 look more lenient
+      than it may be.
     </p>
     <p>
-      Finally, "fair" here means <em>equal proportional difficulty against a
-      reference</em>. That is one defensible definition among several. A field-size
-      or participation-based definition could reach different conclusions from the
-      same standards.
+      Non-binary athletes (110 accepted in 2026) are left out because the BAA says
+      it does not yet have the data to set standards for the category. And "fair"
+      here means equal proportional difficulty against a reference. The BAA may be
+      aiming at field size, continuity or something else; a different definition
+      could reach a different verdict on the same table.
     </p>
   </section>
 
   <section class="stop stop--end">
-    <p class="eyebrow">Finish · how it was built</p>
+    <p class="eyebrow">Finish: sources and method</p>
     <h2>Where the numbers come from</h2>
     <dl class="specs">
-      <div class="spec"><dt>Standards</dt><dd>2026 BAA qualifying times, direct from <a href="https://www.baa.org/races/boston-marathon/qualify/">baa.org</a></dd></div>
-      <div class="spec"><dt>Open records</dt><dd>World Athletics: men 1:59:30, women's mixed 2:09:56</dd></div>
-      <div class="spec"><dt>Masters records</dt><dd>M35 through W80+, compiled from the WMA list and cross-referenced against ratified records</dd></div>
-      <div class="spec"><dt>Age factors</dt><dd>WMA 2023 Appendix B</dd></div>
-      <div class="spec"><dt>Field size</dt><dd>BAA press releases: 24,362 accepted qualifiers, 4:34 cutoff</dd></div>
-      <div class="spec"><dt>Scope</dt><dd>22 brackets: 11 age groups × 2 genders</dd></div>
+      <div class="spec"><dt>Standards</dt><dd>2026 BAA qualifying times from <a href="https://www.baa.org/races/boston-marathon/qualify/">baa.org</a></dd></div>
+      <div class="spec"><dt>Open records</dt><dd>World Athletics: men 1:59:30 (Sawe, London 2026), women's mixed 2:09:56 (Chepngetich, Chicago 2024)</dd></div>
+      <div class="spec"><dt>Masters records</dt><dd>M40 to W80+, from the Wikipedia masters road-running list, checked against WMA records</dd></div>
+      <div class="spec"><dt>Age factors</dt><dd>WMA 2023 Appendix B, single-year factors averaged to bracket midpoints</dd></div>
+      <div class="spec"><dt>Field size</dt><dd>BAA releases: 33,249 applied, 24,362 accepted, 4:34 cutoff under BQ</dd></div>
+      <div class="spec"><dt>Tests</dt><dd>Welch t-test on means, Levene's test on variance, coefficient of variation, z-score deviation heatmaps, sensitivity re-runs</dd></div>
+      <div class="spec"><dt>Stack</dt><dd>Python: pandas, NumPy, SciPy, matplotlib, seaborn; Jupyter notebook</dd></div>
       <div class="spec"><dt>Reproduce</dt><dd><code>pip install -r requirements.txt</code> then <code>python src/analysis.py</code></dd></div>
-      <div class="spec"><dt>Also ships</dt><dd>A Jupyter notebook, PDF and Word reports, and a standalone HTML article</dd></div>
-      <div class="spec"><dt>Sibling</dt><dd><a href="https://lyhjeremy.github.io/athletics-scoring-fairness/">Auditing the Scoring Tables</a>, the same fairness question asked of World Athletics points</dd></div>
+      <div class="spec"><dt>Sibling</dt><dd><a href="https://lyhjeremy.github.io/athletics-scoring-fairness/">Auditing the scoring tables</a>, the same fairness question asked of World Athletics points</dd></div>
     </dl>
   </section>
 
@@ -516,17 +566,18 @@
 
 <div class="wrap">
   <section class="close">
-    <h2>Not biased on the mean. Inconsistent at the edges.</h2>
+    <h2>Balanced on the mean, uneven at the edges, and one bracket an hour off.</h2>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness/blob/main/writeup.md">Read the full writeup</a>
-      <a class="textlink" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">or the code and data</a>
+      <a class="btn btn-primary" href="../web/index.html">Read the full report</a>
+      <a class="textlink" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness/blob/main/writeup.md">Writeup on GitHub</a>
     </div>
   </section>
 
   <footer>
     <p>
-      Boston BQ Fairness ·
-      <a href="../">Showcase</a> ·
+      Boston BQ fairness ·
+      <a href="../">Project page</a> ·
+      <a href="../web/index.html">Full report</a> ·
       <a href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness/blob/main/writeup.md">Writeup</a> ·
       <a href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">Source</a> ·
       MIT © 2026 Jeremy Lee
