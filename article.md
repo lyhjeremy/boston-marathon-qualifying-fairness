@@ -95,7 +95,7 @@ The four datasets:
 
 - `bq_standards_2026.csv`: all 22 qualifying times, from baa.org.
 - `world_records.csv`: open and masters marathon records per bracket, checked against World Athletics and the Wikipedia masters records list.
-- `wma_age_factors.csv`: WMA 2023 marathon age factors, single-year ages averaged to bracket midpoints.
+- `wma_age_factors.csv`: WMA 2023 marathon age factors, taken at each bracket's midpoint age.
 - `field_size_2026.csv`: 24,362 accepted, 33,249 applied and the 4:34 cutoff, from BAA press releases.
 
 The notebook runs in nine sections:

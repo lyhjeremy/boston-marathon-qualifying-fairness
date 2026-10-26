@@ -20,7 +20,7 @@ Here "equitable" means that every bracket requires the same proportional effort 
 
 ## 2. Data
 
-The 2026 standards come from baa.org. The open marathon records (men: Sabastian Sawe, 1:59:30, London 2026; women, mixed race: Ruth Chepngetich, 2:09:56, Chicago 2024) were checked against World Athletics. Masters records from M40 to W80+ come from the Wikipedia list of masters road-running records, checked against WMA records. Age factors are the WMA 2023 Appendix B tables, with single-year factors averaged to each bracket's midpoint. Field-size figures (33,249 applications, 24,362 accepted, a 4:34 cutoff) come from BAA press releases.
+The 2026 standards come from baa.org. The open marathon records (men: Sabastian Sawe, 1:59:30, London 2026; women, mixed race: Ruth Chepngetich, 2:09:56, Chicago 2024) were checked against World Athletics. Masters records from M40 to W80+ come from the Wikipedia list of masters road-running records, checked against WMA records. Age factors are the WMA 2023 Appendix B marathon factors, taken at each bracket's midpoint age (37 for 35-39, 82 for 80+). Field-size figures (33,249 applications, 24,362 accepted, a 4:34 cutoff) come from BAA press releases.
 
 Scope: 22 brackets (11 age groups × 2 genders). Non-binary athletes (110 accepted in 2026) are excluded because the BAA says it does not have enough data to set standards for the category.
 
