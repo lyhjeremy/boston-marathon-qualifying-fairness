@@ -8,13 +8,13 @@
 
 ## Abstract
 
-The Boston Athletic Association sets qualifying times by age and gender and has never published how. This report tests whether the 2026 standards ask for equal difficulty across all 22 age-gender brackets, using three frameworks: (1) a world-record multiplier, (2) an averaged top-three-records check, and (3) WMA age grading. Under every framework the men's standards are consistent (coefficient of variation 1.9% to 4.0%) and the women's are not (6.6% to 7.8%). A Welch t-test finds no difference in the gender means (p = 0.81 under the world-record framework, p = 0.68 under age grading). W80+ is the most miscalibrated bracket under every framework. The report gives alternative standards under each framework and sets out the limitations.
+Does a 2:55 for a man of 30 ask as much of him as a 5:20 asks of a woman of 82? The Boston Athletic Association sets qualifying times by age and gender and has never published how it picks them. This report tests whether the 2026 standards ask for equal difficulty across all 22 age-gender brackets, using three frameworks: (1) a world-record multiplier, (2) an averaged top-three-records check, and (3) WMA age grading. A Welch t-test finds no difference in the gender means (p = 0.81 under the world-record framework, p = 0.68 under age grading). The spread is another matter: under every framework the men's standards sit close together (coefficient of variation 1.9% to 4.0%) while the women's scatter (6.6% to 7.8%), and W80+ is the most miscalibrated bracket each time. The report gives alternative standards under each framework and sets out the limitations.
 
 ## 1. Introduction
 
 The Boston Marathon, first run in 1897, is the oldest annual marathon in the world and one of the few large marathons that requires a qualifying time. The BAA publishes standards for 11 age groups in each of two genders, plus a non-binary category added recently. For 2026 it cut five minutes from every standard below age 60 after 33,249 applications for roughly 24,000 qualifier places.
 
-The BAA has not explained the method behind its standards. Its statements refer to "careful analysis of results data" without saying whether the aim is equal difficulty, equal selectivity, a target field size or continuity.
+The BAA has not explained the method behind its standards. Its statements refer to "careful analysis of results data" without saying whether the aim is equal difficulty, equal selectivity, a target field size or continuity. I have run 14 marathons (best 2:48, at Berlin), and the qualifying table is the part of the sport where that silence is most obvious.
 
 Here "equitable" means that every bracket requires the same proportional effort against a shared reference. Choosing the reference is itself a judgment, so the report uses three and compares them.
 
@@ -40,7 +40,7 @@ Under uniform difficulty every bracket would share one multiplier. Below age 40 
 
 ### 3.2 Framework 2: top-three records
 
-A single record is sensitive to one exceptional athlete. This framework replaces it with an average of the top three performances in each bracket. The second and third marks are estimated rather than looked up: 3% and 6% slower than the record for brackets with depth, and 5% and 10% slower for the thin 70+ brackets. It is an approximation and is labeled as one throughout.
+A single record is sensitive to one exceptional athlete. This framework replaces it with an average of the top three performances in each bracket. The second and third marks are estimated from fixed depth factors: 3% and 6% slower than the record for brackets with depth, and 5% and 10% slower for the thin 70+ brackets. It is an approximation and is labeled as one throughout.
 
 ### 3.3 Framework 3: WMA age grading
 
@@ -50,7 +50,7 @@ World Masters Athletics publishes age factors for the expected decline in perfor
 age_graded_% = (open_WR / WMA_factor) / BQ_time × 100
 ```
 
-This uses population-level factors instead of one athlete's record.
+The reference here is a population-level factor, so no single athlete's record sets the bracket.
 
 ### 3.4 Tests
 
@@ -60,7 +60,7 @@ Gender means are compared with a Welch t-test and gender variances with Levene's
 
 ### 4.1 Framework 1: world-record multiplier
 
-The median multiplier across all 22 brackets is **1.50×**: the typical standard is half again as slow as the bracket's record. The men's brackets fall between 1.43× and 1.53× (CV 1.9%). The women's run from 1.27× to 1.62× (CV 6.6%). The Welch t-test on gender means gives t = −0.25, p = 0.81. Levene's test gives W = 5.04, p = 0.036.
+The median multiplier across all 22 brackets is **1.50×**, so the typical standard is half again as slow as the bracket's record. The men's brackets fall between 1.43× and 1.53× (CV 1.9%), the women's between 1.27× and 1.62× (CV 6.6%). The Welch t-test on gender means gives t = −0.25, p = 0.81. Levene's test gives W = 5.04, p = 0.036.
 
 ![Figure 1: Each bracket's qualifying standard as a multiple of its world record](outputs/figures/fig1_wr_multiplier.png)
 
@@ -70,7 +70,7 @@ The extreme cases are W80+ at 1.27×, only 27% slower than Yoko Nakano's 4:11:45
 
 ### 4.2 Framework 2: top-three records
 
-Averaging the estimated top three lowers the median multiplier to 1.45×. It does not reduce the spread: the women's CV is 7.3% and the men's 2.1%. The inconsistency is not the product of a single record.
+Averaging the estimated top three lowers the median multiplier to 1.45× and leaves the spread where it was (women's CV 7.3%, men's 2.1%), so the inconsistency survives the removal of any single record's influence.
 
 ### 4.3 Framework 3: age grading
 
@@ -86,11 +86,11 @@ Under WMA age grading the median standard asks for **67.9%** of age-graded poten
 
 ## 5. Findings across frameworks
 
-**No mean-level gender bias.** Under each framework the average difficulty for men and women is statistically indistinguishable (p ≥ 0.68).
+On the mean, the frameworks agree there is no gender bias: the average difficulty for men and women is statistically indistinguishable under each (p ≥ 0.68).
 
-**The women's standards are less consistent.** The men's CV ranges from 1.9% to 4.0% across frameworks and the women's from 6.6% to 7.8%. Some of this comes from unusual reference records, and some from setting standards for brackets with thin competition.
+They also agree that the women's standards are less consistent. The men's CV ranges from 1.9% to 4.0% across frameworks and the women's from 6.6% to 7.8%. Some of this comes from unusual reference records, and some from setting standards for brackets with thin competition.
 
-**W80+ is the most miscalibrated bracket.** Under the world-record framework the current standard is **57 minutes** stricter than a uniform multiplier would set it. Under age grading it is **56 minutes** stricter. Whichever framework you prefer, the W80+ standard comes out too hard.
+And they agree on the worst bracket. Under the world-record framework the W80+ standard is **57 minutes** stricter than a uniform multiplier would set it; under age grading it is **56 minutes** stricter. Whichever framework you prefer, W80+ comes out too hard.
 
 ![Figure 4: Deviation heatmaps under all three frameworks](outputs/figures/fig5_heatmap.png)
 
@@ -155,21 +155,19 @@ Each bracket's metric under each framework, with the uniform standard under Fram
 
 ## 9. Limitations
 
-**Single-record dependence.** Frameworks 1 and 2 rest on individual performances, and thin brackets, older women's in particular, are set by one exceptional athlete. Framework 3 avoids this with population-level factors, though those factors come from historical data that may underrepresent some groups.
+Frameworks 1 and 2 rest on individual performances, and thin brackets (older women's in particular) are set by one exceptional athlete. Framework 3 avoids this with population-level factors, though those factors come from historical data that may underrepresent some groups. Framework 2 also uses fixed depth factors in place of actual second and third marks.
 
-**Brackets under 40.** With no separate masters record below 40, 18-34 and 35-39 share the open record, which makes 35-39 look more lenient than it may be.
+With no separate masters record below 40, 18-34 and 35-39 share the open record, which makes 35-39 look more lenient than it may be.
 
-**Top-three estimates.** Framework 2 uses fixed depth factors instead of actual second and third marks.
+With 11 brackets per gender the tests have little power. Levene's p = 0.036 is from the world-record framework only and clears 0.05 narrowly.
 
-**One definition of fairness.** These frameworks measure equal difficulty only. The BAA may be aiming at field size, continuity, participation or competitive depth, and a standard that looks unfair under one definition may be reasonable under another.
-
-**Statistical power.** With 11 brackets per gender the tests have little power. Levene's p = 0.036 is from the world-record framework only and clears 0.05 narrowly.
+The last limit is the definition itself. These frameworks measure equal difficulty and nothing else; the BAA may be aiming at field size, continuity, participation or competitive depth, and a standard that looks unfair under one definition may be reasonable under another.
 
 ## 10. Conclusion
 
-On average the BAA's standards treat men and women alike. The claim that Boston is unfair to women does not survive testing under any of the three frameworks. What the data does show is a consistency problem: the women's standards vary much more from bracket to bracket than the men's, and W80+ is an outlier under every framework.
+On average the BAA's standards treat men and women alike, and the claim that Boston is unfair to women fails under all three frameworks. What the data does show is a consistency problem: the women's standards vary much more from bracket to bracket than the men's, and W80+ is an outlier under every framework.
 
-The choice of framework is a trade-off. World records are transparent and sensitive to outliers; top-three averages are steadier but partly estimated; age grading rests on population data with its assumptions inside the factor tables. None is correct by default, so the report shows what each one finds.
+The choice of framework is a trade-off. World records are transparent and sensitive to outliers; top-three averages are steadier but partly estimated; age grading rests on population data with its assumptions inside the factor tables. Each has a case, so the report shows what each one finds.
 
 ## Reproducibility
 

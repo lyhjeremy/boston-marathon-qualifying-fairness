@@ -1,6 +1,6 @@
 # Are Boston Marathon qualifying times fair?
 
-A statistical audit of all 22 Boston Marathon age-gender qualifying standards (2026) against three fairness frameworks: world-record multipliers, averaged top-three records and WMA age grading.
+The Boston Athletic Association has never said how it sets its qualifying times. This repo audits all 22 age-gender standards for 2026 against three yardsticks (world-record multipliers, averaged top-three records and WMA age grading) and asks whether every bracket is equally hard.
 
 [Live site](https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/) · [Write-up](https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/overview/) · [Full report](https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/web/) · [PDF](reports/Are_Boston_Marathon_Qualifying_Times_Fair_Report.pdf) · [Notebook](notebooks/boston_bq_fairness_analysis.ipynb)
 
@@ -15,7 +15,7 @@ Design and copy follow [these standards](https://github.com/lyhjeremy/lyhjeremy/
 | Equal-variance test (Levene, world-record framework) | W = 5.04, p = 0.036 |
 | W80+ standard against a uniform standard | 57 min too strict (world-record), 56 min (age-graded) |
 
-The BAA gets the average right: men and women are asked for the same mean effort. The women's standards are much less consistent from bracket to bracket, and W80+ (5:20:00, where a uniform multiplier gives 6:17:20) is the strictest bracket under every framework.
+The BAA gets the average right, since men and women are asked for the same mean effort. Where it slips is consistency: the women's standards vary much more from bracket to bracket, and W80+ (5:20:00, where a uniform multiplier gives 6:17:20) is the strictest bracket under every framework.
 
 ![Bar chart of each bracket's qualifying standard as a multiple of its world record. Men's bars sit between 1.43 and 1.53; women's run from 1.27 at W80+ to 1.62 at W35-39.](outputs/figures/fig1_wr_multiplier.png)
 
@@ -72,7 +72,7 @@ Or open `notebooks/boston_bq_fairness_analysis.ipynb` and run all cells.
 - The top-three framework uses estimated second and third marks.
 - Below 40 there is no separate masters record, so 18-34 and 35-39 share the open record, which makes 35-39 look more lenient.
 - Non-binary athletes (110 accepted in 2026) are excluded; the BAA says it lacks the data to set standards for the category.
-- "Fair" here means equal proportional difficulty against a reference. The BAA may be optimizing for field size or continuity instead.
+- "Fair" here means equal proportional difficulty against a reference. The BAA may be optimizing for field size or continuity, which this audit does not measure.
 
 ## License
 

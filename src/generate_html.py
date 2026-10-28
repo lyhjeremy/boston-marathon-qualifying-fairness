@@ -253,7 +253,7 @@ html = f"""<!DOCTYPE html>
   <h3>WMA age grading</h3>
   <p>World Masters Athletics publishes age factors for the expected decline in performance with age. This asks what share of age-specific potential each standard demands.</p>
   <div class="formula">AG% = (open_WR / WMA_factor) / BQ &times; 100</div>
-  <p>Built on population data rather than single records; the assumptions sit inside the factor tables.</p>
+  <p>Built on population data, so no single record sets a bracket; the assumptions sit inside the factor tables.</p>
 </li>
 </ol>
 
