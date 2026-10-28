@@ -198,7 +198,7 @@ html = f"""<!DOCTYPE html>
 <span class="section-label">Section 01</span>
 <h2 id="question">The question nobody answers</h2>
 
-<p>Boston is one of only two World Marathon Majors you enter by running a qualifying time rather than through a lottery or a charity place. You earn the time at another marathon within the qualifying window, and it has to beat the standard for your age and gender.</p>
+<p>To apply for Boston you need a qualifying time; <a href="https://www.baa.org/races/boston-marathon/qualify">the BAA's entry rules</a> leave charity places as the main other way in. You earn the time at another marathon within the qualifying window, and it has to beat the standard for your age and gender. Other World Marathon Majors take time qualifiers too (<a href="https://www.chicagomarathon.com/apply/">Chicago</a> guarantees a place to anyone under its standard), but they also hold a drawing open to everyone.</p>
 
 <p>For the 2026 race the BAA cut five minutes from every standard below age 60. There were <strong>33,249 applications</strong> for about <strong>24,000 qualifier places</strong>, and even after the cut a runner needed to beat their standard by <strong>4 minutes 34 seconds</strong> to get in.</p>
 
@@ -226,7 +226,7 @@ html = f"""<!DOCTYPE html>
   <li><span>2026 field size</span><span class="source">BAA press releases</span></li>
 </ul>
 
-<p>The open records are Sabastian Sawe's <strong>1:59:30</strong> (London, April 2026) for men and Ruth Chepngetich's <strong>2:09:56</strong> (Chicago 2024) for women. At the other end, the 80+ references are Ed Whitlock's 3:15:54 and Yoko Nakano's 4:11:45.</p>
+<p>The open records are Sabastian Sawe's <strong>1:59:30</strong> (London, April 2026, <a href="https://worldathletics.org/news/press-releases/ratified-world-records-sawe-ehammer-charlton-mcrae-yan-duplantis-assefa">ratified by World Athletics</a> in July 2026) for men and Ruth Chepngetich's <strong>2:09:56</strong> (Chicago 2024) for women. At the other end, the 80+ references are Ed Whitlock's 3:15:54 and Yoko Nakano's 4:11:45.</p>
 
 <span class="section-label">Section 03</span>
 <h2 id="frameworks">Three definitions of fair</h2>

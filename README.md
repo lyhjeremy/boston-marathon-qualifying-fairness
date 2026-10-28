@@ -63,7 +63,7 @@ Or open `notebooks/boston_bq_fairness_analysis.ipynb` and run all cells.
 | Dataset | Source |
 |---|---|
 | 2026 qualifying standards | [baa.org](https://www.baa.org/races/boston-marathon/qualify/) |
-| Open marathon records | World Athletics |
+| Open marathon records | World Athletics ([Sawe's 1:59:30 ratification](https://worldathletics.org/news/press-releases/ratified-world-records-sawe-ehammer-charlton-mcrae-yan-duplantis-assefa)) |
 | Masters marathon records | [Wikipedia masters list](https://en.wikipedia.org/wiki/List_of_masters_world_records_in_road_running), checked against WMA |
 | WMA age factors | [WMA 2023 Appendix B](https://howardgrubb.co.uk/athletics/wmatnf23.html) |
 | Field size | BAA press releases |
