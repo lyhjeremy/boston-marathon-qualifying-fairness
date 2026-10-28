@@ -118,7 +118,7 @@ There are good reasons not to read too much into this.
 
 **The sample is small.** Eleven brackets per gender. The Levene test clears 0.05, but it has little power, and I only ran it on the world-record framework. The variance gap holds up under every perturbation I tried, so I trust its direction more than its exact size.
 
-**The brackets under 40 use the open record.** There is no separate masters record below 40, so 18-34 and 35-39 are both anchored to Sawe and Chepngetich. That makes 35-39 look more lenient than it may be.
+**The brackets under 40 use the open record.** There is no separate masters record below 40, so 18-34 and 35-39 are both anchored to Sawe and Chepngetich. Chepngetich is serving a three-year ban, announced by the [Athletics Integrity Unit](https://www.athleticsintegrity.org/downloads/pdfs/other/Press-Release_Howman-Nobody-Above-the-Rules-%E2%80%93-AIU-Bans-Chepngetich-for-3-Years.pdf) on 23 October 2025, after a positive test for the diuretic hydrochlorothiazide on 14 March 2025; the AIU said her records from before that test stand while it looks into other material from her phone, and the [World Athletics all-time list](https://worldathletics.org/records/all-time-toplists/road-running/marathon/all/women/senior) still puts 2:09:56 first (checked 28 October 2026). That makes 35-39 look more lenient than it may be.
 
 ## What it doesn't cover
 

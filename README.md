@@ -63,10 +63,12 @@ Or open `notebooks/boston_bq_fairness_analysis.ipynb` and run all cells.
 | Dataset | Source |
 |---|---|
 | 2026 qualifying standards | [baa.org](https://www.baa.org/races/boston-marathon/qualify/) |
-| Open marathon records | World Athletics ([Sawe's 1:59:30 ratification](https://worldathletics.org/news/press-releases/ratified-world-records-sawe-ehammer-charlton-mcrae-yan-duplantis-assefa)) |
+| Open marathon records | World Athletics ([Sawe's 1:59:30 ratification](https://worldathletics.org/news/press-releases/ratified-world-records-sawe-ehammer-charlton-mcrae-yan-duplantis-assefa)); women: Ruth Chepngetich's 2:09:56, Chicago 2024 |
 | Masters marathon records | [Wikipedia masters list](https://en.wikipedia.org/wiki/List_of_masters_world_records_in_road_running), checked against WMA |
 | WMA age factors | [WMA 2023 Appendix B](https://howardgrubb.co.uk/athletics/wmatnf23.html) |
 | Field size | BAA press releases |
+
+Chepngetich is serving a three-year ban, announced by the [Athletics Integrity Unit](https://www.athleticsintegrity.org/downloads/pdfs/other/Press-Release_Howman-Nobody-Above-the-Rules-%E2%80%93-AIU-Bans-Chepngetich-for-3-Years.pdf) on 23 October 2025, after a positive test for the diuretic hydrochlorothiazide on 14 March 2025; the AIU said her records from before that test stand while it looks into other material from her phone, and the [World Athletics all-time list](https://worldathletics.org/records/all-time-toplists/road-running/marathon/all/women/senior) still puts 2:09:56 first (checked 28 October 2026).
 
 ## Limitations
 
