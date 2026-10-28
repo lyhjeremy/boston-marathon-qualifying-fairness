@@ -17,6 +17,8 @@ Design and copy follow [these standards](https://github.com/lyhjeremy/lyhjeremy/
 
 The BAA gets the average right, since men and women are asked for the same mean effort. Where it slips is consistency: the women's standards vary much more from bracket to bracket, and W80+ (5:20:00, where a uniform multiplier gives 6:17:20) is the strictest bracket under every framework.
 
+The [write-up](https://lyhjeremy.github.io/boston-marathon-qualifying-fairness/overview/) has the whole table as an interactive board (four measures, one row per age group), a sortable results table, and a card that checks any marathon time against its bracket's 2026 standard, the 4:34 entry cushion and the uniform standards. All of it is drawn in the browser from `outputs/analysis_results.csv`.
+
 ![Bar chart of each bracket's qualifying standard as a multiple of its world record. Men's bars sit between 1.43 and 1.53; women's run from 1.27 at W80+ to 1.62 at W35-39.](outputs/figures/fig1_wr_multiplier.png)
 
 ## Method

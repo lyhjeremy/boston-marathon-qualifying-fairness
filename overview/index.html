@@ -249,6 +249,63 @@
   .steps .lab { font: 700 17px var(--display); text-transform: uppercase; letter-spacing: .04em; }
   .steps .lm { fill: var(--accent2); } .steps .lw { fill: var(--accent); }
   .steps .note { fill: var(--accent); font: 600 15px var(--display); text-transform: uppercase; letter-spacing: .04em; }
+
+  .bignum { line-height: 1; margin-bottom: 12px; }
+  .stop .fig-title, .fig-title { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2.8vw, 28px); line-height: 1.1; margin: 0 0 4px; color: var(--ink); }
+  .seg { display: flex; flex-wrap: wrap; margin: 14px 0 12px; }
+  .seg button { font: 600 13.5px/1.2 var(--mono); padding: 8px 11px; border: 1px solid var(--edge); background: transparent; color: var(--ink); cursor: pointer; margin: 0 -1px -1px 0; }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .chart { border: 1px solid var(--rule); background: var(--card); padding: 10px 10px 4px; }
+  .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .chart text { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+  .chart .age { font-family: var(--display); font-size: 15px; font-weight: 600; fill: var(--ink); }
+  .chart .end { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; }
+  .chart .grid { stroke: var(--rule); stroke-width: 1; }
+  .chart .med { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .chart .link { stroke: var(--edge); stroke-width: 1.5; }
+  .chart .mk { stroke: var(--card); stroke-width: 1.5; cursor: pointer; }
+  .chart .mk.m { fill: var(--accent2); } .chart .mk.w { fill: var(--accent); }
+  .chart .mk:focus { outline: none; stroke: var(--ink); stroke-width: 3; } .chart .mk.sel { stroke: var(--ink); stroke-width: 3; }
+  .chart .callout { font-family: var(--display); font-size: 15px; font-weight: 700; fill: var(--accent); }
+  .readout { font-family: var(--mono); font-size: 13.5px; color: var(--ink); min-height: 1.6em; margin: 10px 0 0; }
+  .cvt { margin-top: 24px; border-top: 2px solid var(--ink); font-family: var(--sans); }
+  .cvr { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+  @media (min-width: 700px) { .cvr { grid-template-columns: 13rem 1fr 1fr; gap: 18px; align-items: center; } }
+  .cvn { font-weight: 600; color: var(--ink); font-size: 15px; }
+  .cvb { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; color: var(--ink); }
+  .cvb i { display: block; height: 12px; flex: none; } .cvb i.m { background: var(--accent2); } .cvb i.w { background: var(--accent); }
+  .cvb b { font-weight: 400; white-space: nowrap; width: 7.5rem; flex: none; }
+  .cvb .tr { flex: 1; min-width: 0; }
+  .cvt-note { font-family: var(--sans); font-size: 14px !important; color: var(--muted) !important; margin-top: 10px; }
+  .sortable table { font-family: var(--mono); font-size: 13.5px; min-width: 660px; }
+  .sortable th { padding: 0; }
+  .sortable th button { font: 600 11px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: none; border: 0; padding: 12px 12px; cursor: pointer; width: 100%; text-align: inherit; }
+  .sortable th[aria-sort="ascending"] button, .sortable th[aria-sort="descending"] button { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+  .sortable th[aria-sort="ascending"] button::after { content: " \2191"; } .sortable th[aria-sort="descending"] button::after { content: " \2193"; }
+  .sortable td { padding: 8px 12px; color: var(--ink); }
+  .sortable .num { text-align: right; }
+  .sortable td.br { font: 700 16px/1 var(--display); }
+  .sortable td small { color: var(--muted); font-family: var(--sans); font-size: 12px; }
+  .sortable td.strict { color: var(--accent); font-weight: 600; } .sortable td.len { color: var(--accent2); }
+  .sortable tr.flag td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .bib { margin-top: 26px; border: 2px solid var(--ink); background: var(--card); }
+  .bib-head { display: flex; justify-content: space-between; gap: 4px 10px; flex-wrap: wrap; padding: 9px 16px; background: var(--ink); color: var(--paper); font: 600 12px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+  .bib-body { padding: 18px; }
+  .bib-in { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: flex-end; }
+  .field { font-family: var(--sans); }
+  .field label { display: block; font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .field input { font: 600 26px/1.1 var(--display); letter-spacing: .03em; width: 8.8ch; padding: 6px 10px; border: 1px solid var(--edge); background: var(--paper); color: var(--ink); }
+  .field select { font: 600 15px/1.2 var(--sans); padding: 10px 8px; border: 1px solid var(--edge); background: var(--paper); color: var(--ink); }
+  .bib-body .hint { font-family: var(--sans); font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+  .bib-body .hint.warn { color: var(--accent); }
+  .verdict { font-family: var(--display); font-weight: 700; font-size: clamp(36px, 6vw, 56px); line-height: 1; color: var(--accent); margin: 18px 0 12px; }
+  .verdict.ok { color: var(--accent2); }
+  .mine-dl { margin: 0; border-top: 1px solid var(--rule); font-family: var(--sans); }
+  .mine-dl div { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+  @media (min-width: 700px) { .mine-dl div { grid-template-columns: 11rem 1fr; gap: 16px; } }
+  .mine-dl dt { font: 600 11.5px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 2px; }
+  .mine-dl dd { margin: 0; font-size: 15.5px; color: var(--ink); }
+  @media (max-width: 640px) { .bib-body { padding: 14px 12px; } }
 </style>
 </head>
 <body>
@@ -263,17 +320,18 @@
     <h1>Fair to women on average. Badly uneven bracket to bracket.</h1>
 
     <p class="hero-sub">
-      The BAA sets a qualifying time for each of 22 age-gender brackets and has
-      never published how. I scored every standard against three references: the
-      bracket's world record, an averaged top three, and WMA age grading. Men and
-      women are asked for the same average effort (Welch t-test, p = 0.81), but the
-      women's standards vary far more from bracket to bracket than the men's, and
-      W80+ is about 57 minutes stricter than a uniform standard would make it.
+      A woman over 80 needs 5:20:00 to qualify for Boston, 1.27 times her age
+      group's world record. A woman of 35 to 39 gets 1.62 times hers. The BAA
+      sets a standard for each of 22 age-gender brackets and has never published
+      how. Scored against three references, men and women are asked for the same
+      average effort (Welch t-test, p = 0.81), but the women's standards vary far
+      more from bracket to bracket, and W80+ is about 57 minutes stricter than a
+      uniform standard would make it.
     </p>
 
     <div class="cta-row">
-      <a class="btn btn-primary" href="../web/index.html">Read the full report</a>
-      <a class="textlink" href="https://github.com/lyhjeremy/boston-marathon-qualifying-fairness">Code and data on GitHub</a>
+      <a class="btn btn-primary" href="#mine">Check your bracket</a>
+      <a class="textlink" href="../web/index.html">Read the full report</a>
     </div>
 
     <div class="claims">
@@ -314,9 +372,9 @@
       stop there.
     </p>
     <p>
-      So "are they fair?" can only be answered by proxy. Pick a reference for how
-      hard each bracket should be, then check whether every standard sits at the
-      same distance from it. Any single reference is arguable, so I used three.
+      So "are they fair?" can only be answered by proxy: pick a reference for how
+      hard each bracket should be, then check whether every standard sits the same
+      distance from it. Any single reference is arguable, so I used three.
     </p>
     <ol class="frames">
       <li><span class="fn">1</span><div><strong>World-record multiplier.</strong> The BQ time divided by the bracket's world record. Transparent, and exposed to one exceptional record.</div></li>
@@ -326,28 +384,48 @@
   </section>
 
   <section class="stop stop--key">
+    <p class="eyebrow">The board</p>
+    <h2>Every bracket, men and women side by side</h2>
+    <p>
+      Each row is an age group; the blue square is the men's standard and the rust
+      dot the women's, placed by how lenient the standard is against its
+      reference. If the table were uniform, every mark would sit on the dashed
+      median. The men's squares nearly do. The women's dots wander, and W80+ sits
+      alone on the strict side. Switch the measure to see that the pattern holds
+      under age grading and under the old 2020 to 2025 standards.
+    </p>
+    <figure id="board-fig">
+      <p class="fig-title" id="board-title" aria-live="polite">&nbsp;</p>
+      <div class="seg" role="group" aria-label="Measure" id="board-seg">
+        <button type="button" data-v="wr" aria-pressed="true">&times; record, 2026</button>
+        <button type="button" data-v="old" aria-pressed="false">&times; record, 2020&ndash;25</button>
+        <button type="button" data-v="ag" aria-pressed="false">Age-graded %</button>
+        <button type="button" data-v="min" aria-pressed="false">Minutes off uniform</button>
+      </div>
+      <div class="chart" id="board"></div>
+      <p class="readout" id="board-read" aria-live="polite">Hover or tab to a mark for the bracket's numbers.</p>
+      <noscript>
+        <div class="plate"><img width="5709" height="2910" src="../outputs/figures/fig1_wr_multiplier.png" alt="Bar chart of the world-record multiplier for each of the 22 age-gender brackets. Men's bars sit between 1.43 and 1.53; women's run from 1.27 at W80+ to 1.62 at W35-39." /></div>
+      </noscript>
+      <figcaption>Values from <code>outputs/analysis_results.csv</code>. Age-graded
+        percentages are flipped so that right means more lenient on every view.
+        "Minutes off uniform" is the current standard minus the median-multiplier
+        standard.</figcaption>
+    </figure>
+  </section>
+
+  <section class="stop">
     <p class="eyebrow">First result</p>
     <h2>The gender-bias claim does not hold</h2>
-
     <div class="bignum">p = 0.81</div>
     <p class="bignum-note">Welch t-test on the gender means, world-record framework. t = &minus;0.25.</p>
-
     <p>
-      Age grading gives the same answer. The men's standards ask for an average of
-      69.1% of age-graded potential and the women's for 68.3% (t = 0.42,
-      p = 0.68). The usual forum complaint is about the mean, and on the mean the
-      two genders are treated alike.
+      The men's multipliers average 1.488 and the women's 1.495. Age grading
+      gives the same answer: the men's standards ask for an average of 69.1% of
+      age-graded potential and the women's for 68.3% (t = 0.42, p = 0.68). The
+      usual forum complaint is about the mean, and on the mean the two genders are
+      treated alike.
     </p>
-    <figure>
-      <div class="plate">
-        <img width="5709" height="2910" src="../outputs/figures/fig1_wr_multiplier.png" fetchpriority="high"
-          alt="Bar chart of the world-record multiplier for each of the 22 age-gender brackets. Men's bars sit between 1.43 and 1.53; women's run from 1.27 at W80+ to 1.62 at W35-39." />
-      </div>
-      <figcaption>
-        Each bracket's standard as a multiple of its own world record. The dashed
-        line is the median, 1.50&times;.
-      </figcaption>
-    </figure>
   </section>
 
   <section class="stop stop--warn">
@@ -357,68 +435,47 @@
       Every men's bracket falls between 1.43&times; and 1.53&times; its world
       record, a coefficient of variation of 1.9%. The women's run from 1.27&times;
       to 1.62&times;, a CV of 6.6%. Levene's test for equal variance gives
-      W = 5.04, p = 0.036.
+      W = 5.04, p = 0.036. Two women who both meet their standard can be running
+      at very different fractions of what their age group has shown is possible.
     </p>
     <p>
-      W35&ndash;39 at 1.62&times; is the most lenient bracket in the table and
-      W80+ at 1.27&times; the strictest. Two women who both meet their standard
-      can be running at very different fractions of what their age group has
-      shown is possible.
+      The gap survives a change of reference. The ratio is about 3.5 to 1 under
+      the two record-based frameworks and about 2 to 1 under age grading.
     </p>
-    <p>
-      The gap survives a change of reference. With an averaged top three, the CVs
-      are 2.1% and 7.3%; with age grading, 4.0% and 7.8%. The ratio is about
-      3.5 to 1 under the two record-based frameworks and about 2 to 1 under age
-      grading.
-    </p>
-    <div class="panels">
-      <figure>
-        <div class="plate">
-          <img width="4109" height="2511" src="../outputs/figures/fig3_cv_comparison.png" loading="lazy"
-            alt="Grouped bars of coefficient of variation by framework. Men: 1.9, 2.1 and 4.0 percent. Women: 6.6, 7.3 and 7.8 percent." />
-        </div>
-        <figcaption>Coefficient of variation under each framework.</figcaption>
-      </figure>
-      <figure>
-        <div class="plate">
-          <img width="7308" height="2620" src="../outputs/figures/fig2_framework_comparison.png" loading="lazy"
-            alt="Bracket difficulty under the world-record, top-three and age-graded frameworks side by side, with the same broad pattern in each." />
-        </div>
-        <figcaption>The three frameworks on one chart: different scales, similar shape.</figcaption>
-      </figure>
-    </div>
+    <div class="cvt" id="cvt" role="table" aria-label="Coefficient of variation across brackets, by framework and gender"></div>
+    <p class="cvt-note">Coefficient of variation (sample standard deviation over mean) of each framework's measure across the 11 brackets, computed on this page from <code>outputs/analysis_results.csv</code>.</p>
   </section>
 
   <section class="stop stop--key">
     <p class="eyebrow">The outlier</p>
     <h2>W80+ is too strict under every framework</h2>
     <p>
-      The W80+ standard is 5:20:00. Applying the median multiplier would put it at
-      6:17:20, 57 minutes slower. Age grading puts the gap at 56 minutes. The two
-      frameworks start from different premises and land a minute apart.
+      The W80+ standard is 5:20:00. The median multiplier would put it at
+      6:17:20, 57 minutes slower, and age grading puts the gap at 56 minutes. The
+      two frameworks start from different premises and land a minute apart.
     </p>
     <p>
       The reference explains it. Yoko Nakano's 4:11:45, run in Tokyo at 81, is an
       exceptional record, and the current standard asks women over 80 to finish
       within 27% of it. Every other bracket sits between 1.42&times; and
-      1.62&times; its record.
+      1.62&times; its record. The table below sorts by any column; it opens on
+      minutes off the uniform standard, strictest first.
     </p>
-    <div class="panels">
-      <figure>
-        <div class="plate">
-          <img width="8032" height="2617" src="../outputs/figures/fig5_heatmap.png" loading="lazy"
-            alt="Deviation heatmap of brackets against frameworks. Red cells mark brackets harder than average; the W80+ row is red in all three columns." />
-        </div>
-        <figcaption>Z-score deviation by bracket. W80+ is red in every column.</figcaption>
-      </figure>
-      <figure>
-        <div class="plate">
-          <img width="7308" height="3083" src="../outputs/figures/fig4_fair_vs_actual.png" loading="lazy"
-            alt="Minutes between each current standard and the uniform standard under each framework. The W80+ bar falls below minus 50 minutes in each panel." />
-        </div>
-        <figcaption>Current standard minus uniform standard, in minutes. Below zero is stricter.</figcaption>
-      </figure>
+    <div class="tablewrap sortable">
+      <table id="bq-table">
+        <thead><tr>
+          <th><button type="button" data-k="name">Bracket</button></th>
+          <th class="num"><button type="button" data-k="bq">2026 BQ</button></th>
+          <th><button type="button" data-k="rec">Record</button></th>
+          <th class="num"><button type="button" data-k="mult">&times; record</button></th>
+          <th class="num"><button type="button" data-k="fair">Uniform BQ</button></th>
+          <th class="num"><button type="button" data-k="off">Min off</button></th>
+          <th class="num"><button type="button" data-k="offag">Min off, age graded</button></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
     </div>
+    <p class="cvt-note">Uniform BQ applies the median multiplier (1.50&times;) to the bracket's record. Negative minutes mean the current standard is stricter than uniform. Click a column heading to sort; click again to reverse.</p>
   </section>
 
   <section class="stop">
@@ -432,8 +489,8 @@
     <p>
       A flat cut leaves the shape of the table in place. Against the same world
       records, the women's CV was 7.3% under the 2020&ndash;2025 standards and is
-      6.6% now; the men's moved from 1.8% to 1.9%. The cut answered demand, and
-      because it was the same for everyone it left the spread almost untouched.
+      6.6% now; the men's moved from 1.8% to 1.9%. (The board above has the old
+      standards as one of its views.)
     </p>
     <p>
       It did make one step steeper. The jump from 55&ndash;59 to 60&ndash;64 was
@@ -477,13 +534,6 @@
         cut (15 before it).
       </figcaption>
     </figure>
-    <figure>
-      <div class="plate">
-        <img width="6105" height="2620" src="../outputs/figures/fig7_historical.png" loading="lazy"
-          alt="Bars of 2020-2025 and 2026 multipliers for each bracket, men and women. Every under-60 bar drops by a similar amount; the 60+ bars are unchanged." />
-      </div>
-      <figcaption>2020&ndash;2025 (light) against 2026 (dark), as world-record multipliers.</figcaption>
-    </figure>
   </section>
 
   <section class="stop">
@@ -501,20 +551,38 @@
       bracket accounts for about a third of the women's spread, and even without
       it the women's CV is more than twice the men's.
     </p>
-    <figure>
-      <div class="plate">
-        <img width="4505" height="2510" src="../outputs/figures/fig8_sensitivity.png" loading="lazy"
-          alt="Coefficient of variation under four scenarios. Men stay at 1.9 percent throughout. Women: 6.6 baseline, 4.5 without W80+, 6.6 with Diver, 6.4 with Assefa." />
+    <div class="cvt" id="sens" role="table" aria-label="Coefficient of variation of the world-record multiplier under four scenarios"></div>
+    <p class="cvt-note">Recomputed on this page from <code>outputs/analysis_results.csv</code> with the three substitutions in <code>sensitivity_analysis()</code> of <code>src/analysis.py</code>: drop W80+, set the W40&ndash;44 record to 2:21:34 (8,494 s), set the W18&ndash;34 record to 2:15:41 (8,141 s).</p>
+  </section>
+
+  <section class="stop stop--key" id="mine">
+    <p class="eyebrow">Your bracket</p>
+    <h2>What your time means in your bracket</h2>
+    <p>
+      Pick your bracket and enter a marathon time. The card compares it with the
+      2026 standard, with the 4:34 cushion the BAA needed to fill the 2026 field,
+      and with the uniform standards the two main frameworks would set.
+    </p>
+    <div class="bib">
+      <div class="bib-head"><span>Qualifying check</span><span>2026 standards</span></div>
+      <div class="bib-body">
+        <div class="bib-in">
+          <div class="field">
+            <label for="mine-b">Bracket</label>
+            <select id="mine-b"></select>
+          </div>
+          <div class="field">
+            <label for="mine-t">Marathon time</label>
+            <input type="text" id="mine-t" value="3:28:00" inputmode="numeric" autocomplete="off" spellcheck="false" />
+          </div>
+        </div>
+        <p class="hint" id="mine-hint">h:mm:ss or h:mm</p>
+        <div aria-live="polite">
+          <div class="verdict" id="mine-v">&nbsp;</div>
+          <dl class="mine-dl" id="mine-dl"></dl>
+        </div>
       </div>
-      <figcaption>Four scenarios. Only dropping W80+ moves the women's CV much.</figcaption>
-    </figure>
-    <figure>
-      <div class="plate">
-        <img width="5711" height="3310" src="../outputs/figures/fig6_alternative_bq.png" loading="lazy"
-          alt="Alternative qualifying-time tables under each of the three frameworks, shown beside the current standards." />
-      </div>
-      <figcaption>What each framework would set the standards to if applied uniformly.</figcaption>
-    </figure>
+    </div>
   </section>
 
   <section class="stop stop--warn">
@@ -538,10 +606,10 @@
     </p>
     <p>
       Non-binary athletes (110 accepted in 2026) are left out because the BAA says
-      it does not yet have the data to set standards for the category. Finally, "fair"
-      here means equal proportional difficulty against a reference. The BAA may be
-      aiming at field size, continuity or something else; a different definition
-      could reach a different verdict on the same table.
+      it does not yet have the data to set standards for the category. Finally,
+      "fair" here means equal proportional difficulty against a reference. The BAA
+      may be aiming at field size, continuity or something else; a different
+      definition could reach a different verdict on the same table.
     </p>
   </section>
 
@@ -555,7 +623,7 @@
       <div class="spec"><dt>Age factors</dt><dd>WMA 2023 Appendix B, the factor for each bracket's midpoint age</dd></div>
       <div class="spec"><dt>Field size</dt><dd>BAA releases: 33,249 applied, 24,362 accepted, 4:34 cutoff under BQ</dd></div>
       <div class="spec"><dt>Tests</dt><dd>Welch t-test on means, Levene's test on variance, coefficient of variation, z-score deviation heatmaps, sensitivity re-runs</dd></div>
-      <div class="spec"><dt>Stack</dt><dd>Python: pandas, NumPy, SciPy, matplotlib, seaborn; Jupyter notebook</dd></div>
+      <div class="spec"><dt>Stack</dt><dd>Python: pandas, NumPy, SciPy, matplotlib, seaborn; Jupyter notebook. The board, table and card on this page are plain SVG and HTML drawn from <code>outputs/analysis_results.csv</code></dd></div>
       <div class="spec"><dt>Reproduce</dt><dd><code>pip install -r requirements.txt</code> then <code>python src/analysis.py</code></dd></div>
       <div class="spec"><dt>Sibling</dt><dd><a href="https://lyhjeremy.github.io/athletics-scoring-fairness/">Auditing the scoring tables</a>, the same fairness question asked of World Athletics points</dd></div>
     </dl>
@@ -585,5 +653,122 @@
     <p>Data current as of May 2026.</p>
   </footer>
 </div>
+
+<script>
+(function () {
+  // outputs/analysis_results.csv joined to data/world_records.csv:
+  // age, gender, bq_s, wr_s, wr_mult, top3_mult, ag_pct, mult_2020, fair_s, fair_ag_s, diff_s, diff_ag_s, athlete, year
+  var R = [["18-34","M",10500,7170,1.4644,1.4218,68.286,1.5063,10747,10568,-247.165,-68.147,"Sabastian Sawe",2026],["18-34","W",12300,7796,1.5777,1.5318,63.382,1.6162,11685,11490,614.519,809.167,"Ruth Chepngetich",2024],["35-39","M",10800,7170,1.5063,1.4624,67.195,1.5481,10747,10696,52.835,103.495,"Sabastian Sawe",2026],["35-39","W",12600,7796,1.6162,1.5691,63.007,1.6547,11685,11701,914.519,898.541,"Ruth Chepngetich",2024],["40-44","M",11100,7455,1.4889,1.4456,67.427,1.5292,11174,11031,-74.354,68.532,"Kenenisa Bekele",2024],["40-44","W",12900,8547,1.5093,1.4653,63.951,1.5444,12811,12159,88.84,740.389,"Mariya Konovalova",2015],["45-49","M",11700,7752,1.5093,1.4653,66.611,1.548,11619,11487,80.471,212.884,"Mark Kiptoo",2023],["45-49","W",13500,8494,1.5894,1.5431,64.093,1.6247,12731,12753,768.282,746.578,"Sinead Diver",2022],["50-54","M",12000,8369,1.4339,1.3921,68.208,1.4697,12544,12064,-544.355,-64.094,"Titus Mamabolo",1991],["50-54","W",13800,9065,1.5223,1.478,66.306,1.5554,13587,13486,212.406,313.107,"Tatyana Pozdniakova",2005],["55-59","M",12600,8645,1.4575,1.415,68.809,1.4922,12958,12778,-358.053,-178.896,"Aleksandr Rogoten",2024],["55-59","W",14400,9927,1.4506,1.4083,67.758,1.4808,14879,14381,-479.652,18.482,"Jenny Hitchings",2023],["60-64","M",13800,9002,1.533,1.4883,67.127,1.533,13493,13653,306.837,146.064,"Tommy Hughes",2020],["60-64","W",15600,10183,1.532,1.4873,67.26,1.532,15263,15465,336.627,134.545,"Jenny Hitchings",2023],["65-69","M",14700,9717,1.5128,1.4688,67.932,1.5128,14564,14718,135.118,-18.867,"Derek Turnbull",1992],["65-69","W",16500,10746,1.5355,1.4907,68.976,1.5355,16107,16774,392.742,-274.938,"Mariko Yugeta",2025],["70-74","M",15600,10459,1.4915,1.4205,69.639,1.4915,15677,16012,-77.071,-412.343,"Joseph Schoonbroodt",2022],["70-74","W",17400,12288,1.416,1.3486,71.573,1.416,18418,18355,-1018.573,-955.963,"Jeannie Rice",2019],["75-79","M",16500,11093,1.4874,1.4166,72.304,1.4874,16627,17584,-127.378,-1084.271,"Ed Whitlock",2007],["75-79","W",18300,12807,1.4289,1.3609,75.134,1.4289,19196,20266,-896.505,-1966.019,"Jeannie Rice",2024],["80+","M",17400,11754,1.4803,1.4099,76.027,1.4803,17618,19498,-218.156,-2098.426,"Ed Whitlock",2011],["80+","W",19200,15105,1.2711,1.2106,79.772,1.2711,22640,22575,-3440.994,-3375.31,"Yoko Nakano",2017]];
+  var NS = "http://www.w3.org/2000/svg", CUTOFF = 274; // data/field_size_2026.csv: 4:34 under BQ
+  var rows = R.map(function (r) { return { age: r[0], g: r[1], name: r[1] + r[0].replace("-", "–"), bq: r[2], wr: r[3], mult: r[4], top3: r[5], ag: r[6], old: r[7], fair: r[8], fairag: r[9], off: r[10] / 60, offag: r[11] / 60, who: r[12], yr: r[13] }; });
+  function el(tag, at, parent, txt) { var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; if (parent) parent.appendChild(e); return e; }
+  function hms(s) { s = Math.round(s); var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return h + ":" + (m < 10 ? "0" : "") + m + ":" + (x < 10 ? "0" : "") + x; }
+  function ms(s) { s = Math.round(Math.abs(s)); var m = Math.floor(s / 60), x = s % 60; return (s >= 3600 ? Math.floor(m / 60) + ":" + (m % 60 < 10 ? "0" : "") + m % 60 : m) + ":" + (x < 10 ? "0" : "") + x; }
+  function median(a) { a = a.slice().sort(function (x, y) { return x - y; }); var n = a.length; return n % 2 ? a[(n - 1) / 2] : (a[n / 2 - 1] + a[n / 2]) / 2; }
+  function cv(a) { var n = a.length, m = a.reduce(function (x, y) { return x + y; }, 0) / n, v = a.reduce(function (x, y) { return x + (y - m) * (y - m); }, 0) / (n - 1); return 100 * Math.sqrt(v) / m; }
+  function sg(v, d) { return (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d); }
+  var AGES = rows.filter(function (r) { return r.g === "M"; }).map(function (r) { return r.age; });
+
+  // ---- the board ----
+  var V = {
+    wr: { get: function (r) { return r.mult; }, fmt: function (v) { return v.toFixed(3) + "×"; }, lo: 1.24, hi: 1.68, ticks: [1.3, 1.4, 1.5, 1.6], tf: function (v) { return v.toFixed(1) + "×"; }, t: "Standard as a multiple of the bracket record, 2026" },
+    old: { get: function (r) { return r.old; }, fmt: function (v) { return v.toFixed(3) + "×"; }, lo: 1.24, hi: 1.68, ticks: [1.3, 1.4, 1.5, 1.6], tf: function (v) { return v.toFixed(1) + "×"; }, t: "The same, under the 2020 to 2025 standards" },
+    ag: { get: function (r) { return -r.ag; }, fmt: function (v) { return (-v).toFixed(1) + "% age graded"; }, lo: -82, hi: -60, ticks: [-80, -75, -70, -65], tf: function (v) { return -v + "%"; }, t: "Age-graded percentage each standard demands" },
+    min: { get: function (r) { return r.off; }, fmt: function (v) { return sg(v, 1) + " min against uniform"; }, lo: -62, hi: 20, ticks: [-60, -40, -20, 0, 20], tf: function (v) { return sg(v, 0); }, t: "Minutes between each standard and a uniform one" }
+  };
+  var view = "wr", box = document.getElementById("board"), read = document.getElementById("board-read");
+  function board() {
+    var v = V[view], W = Math.max(300, box.clientWidth - 20), rh = 26, T = 30, B = 34, L = 56, Rr = 16, H = T + B + rh * AGES.length;
+    var X = function (x) { return L + (x - v.lo) / (v.hi - v.lo) * (W - L - Rr); };
+    box.innerHTML = "";
+    var s = el("svg", { viewBox: "0 0 " + W + " " + H, width: W, height: H, role: "group", "aria-label": v.t + ", men and women for each age bracket" }, box);
+    v.ticks.forEach(function (t) { el("line", { class: "grid", x1: X(t), x2: X(t), y1: T - 6, y2: H - B + 4 }, s); el("text", { x: X(t), y: H - B + 20, "text-anchor": "middle" }, s, v.tf(t)); });
+    el("text", { class: "end", x: L, y: 14 }, s, "← stricter");
+    el("text", { class: "end", x: W - Rr, y: 14, "text-anchor": "end" }, s, "more lenient →");
+    var med = view === "min" ? 0 : median(rows.map(v.get));
+    el("line", { class: "med", x1: X(med), x2: X(med), y1: T - 6, y2: H - B + 4 }, s);
+    AGES.forEach(function (age, i) {
+      var y = T + rh * i + rh / 2, m = rows.filter(function (r) { return r.age === age && r.g === "M"; })[0], w = rows.filter(function (r) { return r.age === age && r.g === "W"; })[0];
+      el("text", { x: L - 10, y: y + 4, "text-anchor": "end", class: "age" }, s, age.replace("-", "–"));
+      el("line", { class: "link", x1: X(v.get(m)), x2: X(v.get(w)), y1: y, y2: y }, s);
+      [m, w].forEach(function (r) {
+        var x = X(v.get(r)), mk = r.g === "M" ? el("rect", { class: "mk m", x: x - 6, y: y - 6, width: 12, height: 12, tabindex: 0 }, s) : el("circle", { class: "mk w", cx: x, cy: y, r: 6.5, tabindex: 0 }, s);
+        mk.setAttribute("aria-label", r.name + ": " + v.fmt(v.get(r)));
+        var show = function () { s.querySelectorAll(".mk").forEach(function (o) { o.classList.remove("sel"); }); mk.classList.add("sel");
+          read.textContent = r.name + "  ·  BQ " + hms(r.bq) + "  ·  record " + hms(r.wr) + " (" + r.who + ", " + r.yr + ")  ·  " + v.fmt(v.get(r)); };
+        mk.addEventListener("mouseenter", show); mk.addEventListener("focus", show); mk.addEventListener("click", show);
+      });
+      if (age === "80+" && view !== "old") el("text", { class: "callout", x: X(v.get(w)) + 9, y: y - 9 }, s, "W80+");
+    });
+    var mv = rows.filter(function (r) { return r.g === "M"; }).map(v.get), wv = rows.filter(function (r) { return r.g === "W"; }).map(v.get);
+    document.getElementById("board-title").textContent = v.t + (view === "min" ? "" : ": spread " + cv(mv.map(Math.abs)).toFixed(1) + "% men, " + cv(wv.map(Math.abs)).toFixed(1) + "% women");
+  }
+  document.querySelectorAll("#board-seg button").forEach(function (b) {
+    b.addEventListener("click", function () { view = b.dataset.v; document.querySelectorAll("#board-seg button").forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); }); board(); });
+  });
+
+  // ---- CV table ----
+  (function () {
+    var F = [["World-record multiplier", "mult"], ["Top-three records", "top3"], ["WMA age grading", "ag"]], mx = 8, h = "";
+    F.forEach(function (f) {
+      var m = cv(rows.filter(function (r) { return r.g === "M"; }).map(function (r) { return r[f[1]]; })), w = cv(rows.filter(function (r) { return r.g === "W"; }).map(function (r) { return r[f[1]]; }));
+      h += '<div class="cvr" role="row"><span class="cvn" role="rowheader">' + f[0] + '</span><span class="cvb" role="cell"><b>Men ' + m.toFixed(1) + '%</b><span class="tr"><i class="m" style="width:' + (100 * m / mx).toFixed(1) + '%"></i></span></span><span class="cvb" role="cell"><b>Women ' + w.toFixed(1) + '%</b><span class="tr"><i class="w" style="width:' + (100 * w / mx).toFixed(1) + '%"></i></span></span></div>';
+    });
+    document.getElementById("cvt").innerHTML = h;
+  })();
+
+  // ---- sensitivity (same substitutions as sensitivity_analysis() in src/analysis.py) ----
+  (function () {
+    function mult(list, g) { return list.filter(function (r) { return r.g === g; }).map(function (r) { return r.mult; }); }
+    function sub(name, wr) { return rows.map(function (r) { return r.name === name ? { g: r.g, mult: r.bq / wr } : r; }); }
+    var S = [["Baseline", rows], ["Without W80+", rows.filter(function (r) { return r.name !== "W80+"; })],
+             ["Diver 2:21:34 for W40\u201344", sub("W40\u201344", 8494)], ["Assefa 2:15:41 for W18\u201334", sub("W18\u201334", 8141)]], mx = 8, h = "";
+    S.forEach(function (x) { var m = cv(mult(x[1], "M")), w = cv(mult(x[1], "W"));
+      h += '<div class="cvr" role="row"><span class="cvn" role="rowheader">' + x[0] + '</span><span class="cvb" role="cell"><b>Men ' + m.toFixed(1) + '%</b><span class="tr"><i class="m" style="width:' + (100 * m / mx).toFixed(1) + '%"></i></span></span><span class="cvb" role="cell"><b>Women ' + w.toFixed(1) + '%</b><span class="tr"><i class="w" style="width:' + (100 * w / mx).toFixed(1) + '%"></i></span></span></div>'; });
+    document.getElementById("sens").innerHTML = h;
+  })();
+
+  // ---- sortable table ----
+  var tb = document.querySelector("#bq-table tbody"), key = "off", dir = 1;
+  var REC = { name: function (r) { return r.g + r.age; }, bq: function (r) { return r.bq; }, rec: function (r) { return r.wr; }, mult: function (r) { return r.mult; }, fair: function (r) { return r.fair; }, off: function (r) { return r.off; }, offag: function (r) { return r.offag; } };
+  function table() {
+    var f = REC[key], list = rows.slice().sort(function (a, b) { var x = f(a), y = f(b); return (x < y ? -1 : x > y ? 1 : 0) * dir; });
+    tb.innerHTML = list.map(function (r) {
+      return '<tr' + (r.name === "W80+" ? ' class="flag"' : "") + '><td class="br">' + r.name + '</td><td class="num">' + hms(r.bq) + '</td><td class="who">' + hms(r.wr) + " <small>" + r.who + "</small></td><td class=\"num\">" + r.mult.toFixed(3) + '</td><td class="num">' + hms(r.fair) + '</td><td class="num ' + (r.off < -2 ? "strict" : r.off > 2 ? "len" : "") + '">' + sg(r.off, 1) + '</td><td class="num ' + (r.offag < -2 ? "strict" : r.offag > 2 ? "len" : "") + '">' + sg(r.offag, 1) + "</td></tr>";
+    }).join("");
+    document.querySelectorAll("#bq-table th").forEach(function (th) { var b = th.querySelector("button"); th.setAttribute("aria-sort", b.dataset.k === key ? (dir > 0 ? "ascending" : "descending") : "none"); });
+  }
+  document.querySelectorAll("#bq-table th button").forEach(function (b) {
+    b.addEventListener("click", function () { if (key === b.dataset.k) dir = -dir; else { key = b.dataset.k; dir = 1; } table(); });
+  });
+  table();
+
+  // ---- your bracket ----
+  var bs = document.getElementById("mine-b"), ti = document.getElementById("mine-t");
+  rows.slice().sort(function (a, b) { return a.g === b.g ? AGES.indexOf(a.age) - AGES.indexOf(b.age) : (a.g === "W" ? -1 : 1); }).forEach(function (r) {
+    var o = document.createElement("option"); o.value = r.name; o.textContent = (r.g === "W" ? "Women " : "Men ") + r.age.replace("-", " to "); if (r.name === "W35–39") o.selected = true; bs.appendChild(o);
+  });
+  function parse(s) { var p = s.trim().split(/[:.\s]+/).map(Number); if (p.some(isNaN) || p.length < 2 || p.length > 3) return null; return p[0] * 3600 + p[1] * 60 + (p[2] || 0); }
+  function mine() {
+    var r = rows.filter(function (x) { return x.name === bs.value; })[0], t = parse(ti.value), hint = document.getElementById("mine-hint"), v = document.getElementById("mine-v"), dl = document.getElementById("mine-dl");
+    if (t == null || t < 7000 || t > 30000) { hint.textContent = "Enter a time like 3:28 or 3:27:45."; hint.className = "hint warn"; return; }
+    hint.textContent = "h:mm:ss or h:mm"; hint.className = "hint";
+    var m = r.bq - t;
+    v.textContent = m >= 0 ? ms(m) + " under your BQ" : ms(-m) + " over your BQ";
+    v.className = "verdict" + (m >= CUTOFF ? " ok" : "");
+    function line(dt, dd) { return "<div><dt>" + dt + "</dt><dd>" + dd + "</dd></div>"; }
+    dl.innerHTML =
+      line("2026 standard", hms(r.bq) + (m >= 0 ? (m >= CUTOFF ? ". Also clears the 4:34 cushion that 2026 entry needed." : ". Short of the 4:34 cushion that 2026 entry needed, by " + ms(CUTOFF - m) + ".") : ". Not a qualifying time.")) +
+      line("Uniform, records", hms(r.fair) + " (" + sg(r.off, 1) + " min against the current standard). You would be " + (r.fair - t >= 0 ? ms(r.fair - t) + " under it." : ms(t - r.fair) + " over it.")) +
+      line("Uniform, age graded", hms(r.fairag) + " (" + sg(r.offag, 1) + " min). You would be " + (r.fairag - t >= 0 ? ms(r.fairag - t) + " under it." : ms(t - r.fairag) + " over it.")) +
+      line("Bracket record", hms(r.wr) + ", " + r.who + " (" + r.yr + "). Your time is " + (t / r.wr).toFixed(2) + "× it; the standard is " + r.mult.toFixed(2) + "×.");
+  }
+  [bs, ti].forEach(function (e) { e.addEventListener("input", mine); e.addEventListener("change", mine); });
+  mine();
+
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(board, 120); });
+  board();
+})();
+</script>
 </body>
 </html>
